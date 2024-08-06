@@ -1,0 +1,81 @@
+.parent {
+  width: 400px;
+  height: 550px;
+  margin-top: 15px;
+  text-align: center;
+}
+.inputBox {
+  width: 400px;
+  height: 400px;
+  border: 1px solid rgba(128, 128, 128, 0.502);
+
+  text-align: center;
+  overflow: hidden;
+  padding: 10px;
+}
+img {
+  margin-top: 20px;
+  width: 250px;
+}
+.text-box {
+  padding: 10px 20px;
+  margin: 10px;
+  text-align: center;
+}
+.text-box input {
+  margin-top: 10px;
+}
+.text-box button {
+  background-color: rgb(0, 149, 246);
+  color: white;
+}
+button:hover {
+  background-color: rgb(0, 148, 246) !important;
+  color: white !important;
+}
+.inputBox .row {
+  margin: 5px;
+  padding: 10px 30px;
+}
+.col-5 {
+  height: 1px;
+  background-color: rgba(128, 128, 128, 0.769);
+}
+.col-2 {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: -10px;
+}
+.text {
+  color: blue;
+}
+.text p span {
+  padding-right: 10px;
+}
+a {
+  text-decoration: none;
+  font-size: 13px;
+  color: rgba(0, 0, 0, 0.776);
+}
+.account {
+  height: 50px;
+  border: 1px solid rgba(128, 128, 128, 0.502);
+  margin-top: 15px;
+  padding-top: 8px;
+}
+.play{
+    height: 50px;
+}
+.play p{
+    margin-bottom: 0;
+    margin-top: 10px;
+    font-size: 14px;
+}
+::placeholder{
+    font-size: 13px;
+    color: grey;
+}
+.bi-facebook{
+    color: rgb(0, 148, 246);
+}

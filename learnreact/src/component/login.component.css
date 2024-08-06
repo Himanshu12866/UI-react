@@ -1,0 +1,7 @@
+.box{
+    width: 400px;
+    height: 550px;
+    background-image: url(../../public/images/Screenshot\ 2024-08-06\ 154041.png);
+    background-position: center;
+    background-size: cover;
+}
