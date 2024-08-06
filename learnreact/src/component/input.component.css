@@ -1,5 +1,5 @@
 .parent {
-  width: 400px;
+  max-width: 400px;
   height: 550px;
   margin-top: 15px;
   text-align: center;
@@ -78,4 +78,10 @@ a {
 }
 .bi-facebook{
     color: rgb(0, 148, 246);
+}
+@media(min-width:500px){
+  .parent{
+    width: 100%;
+    flex-direction: column;
+  }
 }
