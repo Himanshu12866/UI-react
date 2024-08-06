@@ -1,7 +1,7 @@
 .box{
     width: 400px;
     min-height: 550px;
-    background-image: url(../../public/images/Screenshot\ 2024-08-06\ 154041.png);
+    background-image: url(./images/Screenshot\ 2024-08-06\ 154041.png);
     background-position: center;
     background-size: cover;
 }
