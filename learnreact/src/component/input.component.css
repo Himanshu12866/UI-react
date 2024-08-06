@@ -79,9 +79,3 @@ a {
 .bi-facebook{
     color: rgb(0, 148, 246);
 }
-@media(min-width:500px){
-  .parent{
-    width: 100%;
-    flex-direction: column;
-  }
-}
