@@ -10,11 +10,11 @@ export default function DataBinding() {
     ])
     return (
         <div><h2>Category</h2>
-           <nav>
+           <ol>
             {
-                categories.map((category,index) => <a href="{`${index}`}" key={index}>{category}</a>)
+                categories.map(category => <a href="{`${category}`}" key={category}>{category}</a>)
             }
-           </nav>
+           </ol>
 
         </div>
     )
