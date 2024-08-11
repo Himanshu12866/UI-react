@@ -10,6 +10,7 @@ import Links from './component/links.jsx'
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
+    
   <Links/>
   </React.StrictMode>,
 )
