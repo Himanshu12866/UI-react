@@ -2,7 +2,8 @@
 import "./component/login.component.css";
 import "./component/input.component.css";
 import "../src/App.css";
-import LoadData1 from "./component/data4";
+import AxiosData from "./component/axios";
+// import LoadData1 from "./component/data4";
 // import LoadData from "./component/data3";
 // import DataJSON from "./component/data2";
 
@@ -17,7 +18,8 @@ function App() {
       <DataBinding /> */}
       {/* <DataJSON/> */}
       {/* <LoadData /> */}
-     <LoadData1 />
+     {/* <LoadData1 /> */}
+     <AxiosData/>
     </div>
   )
 }
