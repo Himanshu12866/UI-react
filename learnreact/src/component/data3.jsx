@@ -43,6 +43,7 @@ export default function LoadData() {
                         product.offers.map(
                             (item, index) =>
                                 <p key={index}>{item}</p>
+                                
 
                         )
                     }
