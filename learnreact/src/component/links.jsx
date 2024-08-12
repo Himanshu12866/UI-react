@@ -30,7 +30,7 @@ export default function Links() {
                 <option value="CS">Czech</option>
                 <option value="DA">Danish</option>
                 <option value="NL">Dutch</option>
-                <option value="EN">English</option>
+                <option value="EN" selected>English</option>
                 <option value="ET">Estonian</option>
                 <option value="FJ">Fiji</option>
                 <option value="FI">Finnish</option>
