@@ -20,13 +20,24 @@ export default function Fetchjosn(){
         FetchAxios();
     }, [])
     return(
-        <div className='d-flex flex-wrap'>
-            <div className='card w-25' style={{height:"300px"}}>
-                <img className='card-img-top' src={data.image}></img>
+        <div className='d-flex flex-wrap m-1 p-2'>{
+            data.map((item,index) => 
+        
+            <div className='card' key={index}>
+                <img alt='name' className='card-img-top' src={item.image}></img>
                 <div className='card-header'>
-                    <h3>{data.name}Name</h3>
+                    <h1>{data.name}</h1>
+                </div>
+                <div className='card-body'>
+                    <p><span className='bi bi-star-fill'></span>{data.rating}</p>
+                    <p>{data.sir}</p>
                 </div>
             </div>
+        
+            )
+        }
+        
+           
         </div>
     )
 }

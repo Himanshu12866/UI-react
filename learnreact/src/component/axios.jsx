@@ -13,6 +13,7 @@ export default function AxiosData() {
         image: "",
         offers: []
     })
+
     function FetchAxios() {
         axios.get("data.json")
             .then(response => response.data)
