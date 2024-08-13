@@ -1,34 +1,34 @@
 [
     {
-        "name":"DevOps with AWS",
-        "rating":4.5,
+        "name": "DevOps with AWS",
+        "rating": 4.5,
         "time": "12 Aug 2024",
-        "image":"images/aws.png",
-        "dur" :"3 Hours",
-        "sir":"Shudhakar Sharma"
+        "image": "images/aws.png",
+        "dur": "3 Hours",
+        "sir": "Shudhakar Sharma"
     },
     {
-        "name":"DevOps with AWS",
-        "rating":4.5,
+        "name": "DevOps with AWS",
+        "rating": 4.5,
         "time": "12 Aug 2024",
-        "image":"images/aws.png",
-        "dur" :"3 Hours",
-        "sir":"Shudhakar Sharma"
+        "image": "images/aws.png",
+        "dur": "3 Hours",
+        "sir": "Shudhakar Sharma"
     },
     {
-        "name":"DevOps with AWS",
-        "rating":4.5,
+        "name": "DevOps with AWS",
+        "rating": 4.5,
         "time": "12 Aug 2024",
-        "image":"images/aws.png",
-        "dur" :"3 Hours",
-        "sir":"Shudhakar Sharma"
+        "image": "images/aws.png",
+        "dur": "3 Hours",
+        "sir": "Shudhakar Sharma"
     },
     {
-        "name":"DevOps with AWS",
-        "rating":4.5,
+        "name": "DevOps with AWS",
+        "rating": 4.5,
         "time": "12 Aug 2024",
-        "image":"images/aws.png",
-        "dur" :"3 Hours",
-        "sir":"Shudhakar Sharma"
+        "image": "images/aws.png",
+        "dur": "3 Hours",
+        "sir": "Shudhakar Sharma"
     }
 ]
