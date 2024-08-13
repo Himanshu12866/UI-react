@@ -4,11 +4,11 @@ export default function Fetchjosn(){
     const [data, setData] = useState([
         {
             name:"",
+            dur:"",
             rating:0,
             time:"",
             image:"",
-            sir:"",
-            dur:""
+            sir:""
         }
     ])
     function FetchAxios() {
@@ -20,10 +20,10 @@ export default function Fetchjosn(){
         FetchAxios();
     }, [])
     return(
-        <div className='d-flex flex-wrap m-1 p-2'>{
+        <div className='d-flex flex-wrap'>{
             data.map((item,index) => 
         
-            <div className='card' key={index}>
+            <div className='card p-2 m-2'  key={index}>
                 <img alt='name' className='card-img-top' src={item.image}></img>
                 <div className='card-header'>
                     <h1>{data.name}</h1>
@@ -31,6 +31,7 @@ export default function Fetchjosn(){
                 <div className='card-body'>
                     <p><span className='bi bi-star-fill'></span>{data.rating}</p>
                     <p>{data.sir}</p>
+                    <span>{data.dur}</span>
                 </div>
             </div>
         
