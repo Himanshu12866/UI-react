@@ -1,7 +1,8 @@
 // import LoginComponent from './component/login.component'
 import "./component/login.component.css";
 import "./component/input.component.css";
-import NASAapi from "./component/nasaapi";
+import FakeStore from "./component/FakeStore";
+// import NASAapi from "./component/nasaapi";
 // import "../src/App.css";
 // import AxiosData from "./component/axios";
 
@@ -24,7 +25,8 @@ function App() {
      {/* <LoadData1 /> */}
      {/* <AxiosData/> */}
      {/* <FetchData/> */}
-     <NASAapi />
+     {/* <NASAapi /> */}
+     <FakeStore />
     </div>
   )
 }
