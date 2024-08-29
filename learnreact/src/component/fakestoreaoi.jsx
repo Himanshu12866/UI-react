@@ -50,6 +50,9 @@ export default function FakeStoreApi() {
     function handleCart(item) {
         setArr(prev => [...prev, item])
     }
+    function handelDelete(){
+        
+    }
 
     useEffect(() => {
         LoadCategory()
@@ -87,7 +90,7 @@ export default function FakeStoreApi() {
                                 <span className="bi bi-heart"></span>
                             </div>
                             <div className="d-inline">
-                                <button className="btn btn-dark ms-4 position-relative">
+                                <button className="btn btn-dark ms-4 position-relative" data-bs-target="#modalBox" data-bs-toggle="modal">
                                     <span className="badge badge-dark rounded rounded-2 fs-4 position-absolute text-light" style={{ bottom: "0px", right: "15px", marginBottom: "30px" }}>{arr.length}</span>
                                     <span className="bi bi-cart3 text-light"></span>
                                 </button>
@@ -120,6 +123,46 @@ export default function FakeStoreApi() {
                     )
                 }
 
+            </div>
+
+
+            <div className="modal fade" id="modalBox">
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                           <h1>Your Cart</h1>
+                           <button className="btn btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div className="modal-body">
+                            <table className="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Name</th>
+                                        <th>Preview</th>
+                                        <th>Price</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {
+                                        arr.map((data , index) => 
+                                        <tr key={index} style={{height:"30px"}}>
+                                        <td>{data.id}</td>
+                                        <td>{data.title}</td>
+                                        <td><img style={{width:"50px", height:"50px",marginTop:"-5px", padding:"0"}} src={data.image}></img></td>
+                                        <td><b>{data.price.toLocaleString('en-in', { style: "currency", currency: "INR" })}</b></td>
+                                        <td><button className=" btn btn-danger bi bi-trash-fill" onClick={handelDelete}></button></td>
+
+                                        </tr>
+                                        )
+                                    }
+                                </tbody>
+                            </table>
+                            
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 

@@ -5,6 +5,7 @@ import App from './App.jsx'
 import "./component/links.css"
 import '../node_modules/bootstrap/dist/css/bootstrap.css'
 import '../node_modules/bootstrap-icons/font/bootstrap-icons.css'
+import "../node_modules/bootstrap/dist/js/bootstrap.bundle.js"
 // import Links from './component/links.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
