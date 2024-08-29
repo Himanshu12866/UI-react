@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import axios from "axios"
 import { useEffect, useState } from "react"
 
@@ -38,7 +39,7 @@ export default function FakeStoreApi() {
             })
     }
     function FilterLink(e) {
-        let links = e.target.name;
+        let links = e.target.id;
         axios.get(`https://fakestoreapi.com/products/category/${links}`)
             .then(response => {
                 setProducts(response.data)
@@ -48,23 +49,31 @@ export default function FakeStoreApi() {
         alert("Your Item has been added to the cart")
         setArr(prev => [...prev, item])
     }
-    function handelDelete(e) {
-        setArr(prev => prev.filter(item => item.id !== e.target.id))
-        let deleteItem = e.target.name;
-        arr.pop(deleteItem)
+    function handelDelete(id) {
+        const newArr = arr.filter(item => item.id !== id)
+        console.log(newArr)
+        setArr([...newArr])
         alert("Item Removed from the cart")
         SetTotal()
     }
+
     function SetTotal(){
+        let subTotal = 0
         arr.map(inr => {
-            let subTotal = inr.price
-            setTotal(subTotal)
+            subTotal += inr.price
         })    
+        setTotal(subTotal)
     }
+
+    useEffect(()=>{
+        SetTotal()
+    },[SetTotal])
+
     useEffect(() => {
         LoadCategory()
         LoadProducts()
-        SetTotal()
+        
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
 
@@ -84,7 +93,7 @@ export default function FakeStoreApi() {
                         {
                             category.map((list, index) =>
                                 <li className="nav-item" key={index}>
-                                    <a className="nav-link" onClick={FilterLink} key={index}>{list.toUpperCase()}</a>
+                                    <a className="nav-link" onClick={FilterLink} id={list}>{list.toUpperCase()}</a>
                                 </li>
                             )
                         }
@@ -153,8 +162,8 @@ export default function FakeStoreApi() {
                                                 <td>{data.id}</td>
                                                 <td style={{fontSize:"12px"}}>{data.title}</td>
                                                 <td><img style={{ width: "50px", height: "50px", marginTop: "-5px", padding: "0" }} src={data.image}></img></td>
-                                                <td><b>{data.price.toLocaleString('en-in', { style: "currency", currency: "INR" })}</b></td>
-                                                <td><button className=" btn btn-danger bi bi-trash-fill" name={index} onClick={handelDelete}></button></td>
+                                                <td><b>{data?.price?.toLocaleString('en-in', { style: "currency", currency: "INR" })}</b></td>
+                                                <td><button className=" btn btn-danger bi bi-trash-fill"  name={index} onClick={()=>handelDelete(data.id)}></button></td>
 
                                             </tr>
                                         )
