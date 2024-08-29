@@ -11,6 +11,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
     
-  {/* <Links/> */}
-  </React.StrictMode>,
+
+  </React.StrictMode>
 )
