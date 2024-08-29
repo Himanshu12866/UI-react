@@ -88,11 +88,11 @@ export default function FakeStoreApi() {
                 <div className="navbar-collapse collapse " id="list">
                     <ol className="navbar-nav d-flex justify-content-between align-items-center">
                         <li className="nav-item">
-                            <a className="nav-link" onClick={FilterLinks}>All</a>
+                            <a className="nav-link" style={{cursor:"pointer"}}  onClick={FilterLinks}>All</a>
                         </li>
                         {
                             category.map((list, index) =>
-                                <li className="nav-item" key={index}>
+                                <li className="nav-item" style={{cursor:"pointer"}} key={index}>
                                     <a className="nav-link" onClick={FilterLink} id={list}>{list.toUpperCase()}</a>
                                 </li>
                             )
