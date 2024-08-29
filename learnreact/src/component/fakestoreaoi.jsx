@@ -14,6 +14,8 @@ export default function FakeStoreApi() {
         descr: "",
         img_src: ""
     }])
+
+    const [arr, setArr] = useState([])
     const [category, categories] = useState([])
 
     function LoadProducts() {
@@ -22,16 +24,37 @@ export default function FakeStoreApi() {
                 setProducts(repsonse.data)
             })
     }
+    function FilterLinks() {
+        axios.get("https://fakestoreapi.com/products")
+            .then(repsonse => {
+                setProducts(repsonse.data)
+            })
+    }
     function LoadCategory() {
+        
+        category.unshift("all")
         axios.get("https://fakestoreapi.com/products/categories")
             .then(response => {
                 categories(response.data)
             })
     }
+    function FilterLink(e) {
+        let links = e.target.name;
+        axios.get(`https://fakestoreapi.com/products/category/${links}`)
+            .then(response => {
+                setProducts(response.data)
+            })
+
+    }
+
+    function handleCart(item) {
+        setArr(prev => [...prev, item])
+    }
+
     useEffect(() => {
-        LoadProducts()
         LoadCategory()
-    })
+        LoadProducts()
+    }, [])
     return (
 
         <div className="box1">
@@ -44,10 +67,14 @@ export default function FakeStoreApi() {
                 </button>
                 <div className="navbar-collapse collapse " id="list">
                     <ol className="navbar-nav d-flex justify-content-between align-items-center">
+                    <li className="nav-item">
+                        <a className="nav-link" onClick={FilterLinks}>All</a>
+                    </li>
+                
                         {
                             category.map((list, index) =>
                                 <li className="nav-item" key={index}>
-                                    <a className="nav-link" key={index}>{list.toUpperCase()}</a>
+                                    <a className="nav-link" onClick={FilterLink} name={list} key={index}>{list.toUpperCase()}</a>
                                 </li>
                             )
                         }
@@ -61,7 +88,7 @@ export default function FakeStoreApi() {
                             </div>
                             <div className="d-inline">
                                 <button className="btn btn-dark ms-4 position-relative">
-                                    <span className="badge badge-dark rounded rounded-2 fs-4 position-absolute text-light" style={{ bottom: "0px", right: "15px", marginBottom: "30px" }}>0</span>
+                                    <span className="badge badge-dark rounded rounded-2 fs-4 position-absolute text-light" style={{ bottom: "0px", right: "15px", marginBottom: "30px" }}>{arr.length}</span>
                                     <span className="bi bi-cart3 text-light"></span>
                                 </button>
                             </div>
@@ -73,25 +100,25 @@ export default function FakeStoreApi() {
             </nav>
 
             <div className="d-flex flex-wrap">
-            {
-                products.map((product,index) => 
+                {
+                    products.map((product, index) =>
 
-                <div className="card text-center" style={{width:"300px", height:"480px" , margin:"10px"}} key={index}>
-                    <img src={product.image} style={{width:"250px",height:"200px"}} className="card-img-top text-center"></img>
-                    <div className="card-header" style={{height:"100px"}}>
-                        <p style={{textOverflow:"ellipsis",fontSize:"12px"}}>{product.title}</p>
-                    </div>
-                    <div className="card-body">
-                        <p className="fs-4"> <b>{product.price.toLocaleString('en-in', {style:"currency",currency:"INR"})}</b></p>
-                        <p><span className="bi bi-star-fill text-primary">{product.rating.rate}</span> Rating <i className="text-danger">{product.rating.count}</i> Reviews</p>
-                        
-                    </div>
-                    <div className="card-footer">
-                        <button className="btn btn-dark" style={{width:"100%"}}><span className="bi bi-cart3 text-light mx-2"></span>Add to Cart</button>
-                    </div>
-                </div>
-                )
-            }
+                        <div className="card text-center" style={{ width: "300px", height: "480px", margin: "10px" }} key={index}>
+                            <img src={product.image} style={{ width: "250px", height: "200px" }} className="card-img-top text-center"></img>
+                            <div className="card-header" style={{ height: "100px" }}>
+                                <p style={{ textOverflow: "ellipsis", fontSize: "12px" }}>{product.title}</p>
+                            </div>
+                            <div className="card-body">
+                                <p className="fs-4"> <b>{product.price.toLocaleString('en-in', { style: "currency", currency: "INR" })}</b></p>
+                                <p><span className="bi bi-star-fill text-primary">{product.rating.rate}</span> Rating <i className="text-danger">{product.rating.count}</i> Reviews</p>
+
+                            </div>
+                            <div className="card-footer">
+                                <button className="btn btn-dark" onClick={() => handleCart(product)} style={{ width: "100%" }}><span className="bi bi-cart3 text-light mx-2"></span>Add to Cart</button>
+                            </div>
+                        </div>
+                    )
+                }
 
             </div>
         </div>
