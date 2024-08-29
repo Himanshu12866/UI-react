@@ -14,9 +14,9 @@ export default function FakeStoreApi() {
         descr: "",
         img_src: ""
     }])
-
     const [arr, setArr] = useState([])
     const [category, categories] = useState([])
+    const [total, setTotal] = useState(0)
 
     function LoadProducts() {
         axios.get("https://fakestoreapi.com/products")
@@ -31,7 +31,6 @@ export default function FakeStoreApi() {
             })
     }
     function LoadCategory() {
-        
         category.unshift("all")
         axios.get("https://fakestoreapi.com/products/categories")
             .then(response => {
@@ -44,19 +43,28 @@ export default function FakeStoreApi() {
             .then(response => {
                 setProducts(response.data)
             })
-
     }
-
     function handleCart(item) {
+        alert("Your Item has been added to the cart")
         setArr(prev => [...prev, item])
     }
-    function handelDelete(){
-        
+    function handelDelete(e) {
+        setArr(prev => prev.filter(item => item.id !== e.target.id))
+        let deleteItem = e.target.name;
+        arr.pop(deleteItem)
+        alert("Item Removed from the cart")
+        SetTotal()
     }
-
+    function SetTotal(){
+        arr.map(inr => {
+            let subTotal = inr.price
+            setTotal(subTotal)
+        })    
+    }
     useEffect(() => {
         LoadCategory()
         LoadProducts()
+        SetTotal()
     }, [])
     return (
 
@@ -70,18 +78,16 @@ export default function FakeStoreApi() {
                 </button>
                 <div className="navbar-collapse collapse " id="list">
                     <ol className="navbar-nav d-flex justify-content-between align-items-center">
-                    <li className="nav-item">
-                        <a className="nav-link" onClick={FilterLinks}>All</a>
-                    </li>
-                
+                        <li className="nav-item">
+                            <a className="nav-link" onClick={FilterLinks}>All</a>
+                        </li>
                         {
                             category.map((list, index) =>
                                 <li className="nav-item" key={index}>
-                                    <a className="nav-link" onClick={FilterLink} name={list} key={index}>{list.toUpperCase()}</a>
+                                    <a className="nav-link" onClick={FilterLink} key={index}>{list.toUpperCase()}</a>
                                 </li>
                             )
                         }
-
                         <div className="list-items">
                             <div className="d-inline">
                                 <span className="bi bi-person"></span>
@@ -101,7 +107,6 @@ export default function FakeStoreApi() {
 
                 </div>
             </nav>
-
             <div className="d-flex flex-wrap">
                 {
                     products.map((product, index) =>
@@ -122,16 +127,13 @@ export default function FakeStoreApi() {
                         </div>
                     )
                 }
-
             </div>
-
-
             <div className="modal fade" id="modalBox">
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
                         <div className="modal-header">
-                           <h1>Your Cart</h1>
-                           <button className="btn btn-close" data-bs-dismiss="modal"></button>
+                            <h1>Your Cart</h1>
+                            <button className="btn btn-close" data-bs-dismiss="modal"></button>
                         </div>
                         <div className="modal-body">
                             <table className="table table-hover">
@@ -146,27 +148,29 @@ export default function FakeStoreApi() {
                                 </thead>
                                 <tbody>
                                     {
-                                        arr.map((data , index) => 
-                                        <tr key={index} style={{height:"30px"}}>
-                                        <td>{data.id}</td>
-                                        <td>{data.title}</td>
-                                        <td><img style={{width:"50px", height:"50px",marginTop:"-5px", padding:"0"}} src={data.image}></img></td>
-                                        <td><b>{data.price.toLocaleString('en-in', { style: "currency", currency: "INR" })}</b></td>
-                                        <td><button className=" btn btn-danger bi bi-trash-fill" onClick={handelDelete}></button></td>
+                                        arr.map((data, index) =>
+                                            <tr key={index} style={{ height: "30px" }}>
+                                                <td>{data.id}</td>
+                                                <td style={{fontSize:"12px"}}>{data.title}</td>
+                                                <td><img style={{ width: "50px", height: "50px", marginTop: "-5px", padding: "0" }} src={data.image}></img></td>
+                                                <td><b>{data.price.toLocaleString('en-in', { style: "currency", currency: "INR" })}</b></td>
+                                                <td><button className=" btn btn-danger bi bi-trash-fill" name={index} onClick={handelDelete}></button></td>
 
-                                        </tr>
+                                            </tr>
                                         )
                                     }
                                 </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th colSpan={"2"} style={{textAlign:"center"}}>Total</th>
+                                        <th colSpan={"2"} style={{textAlign:"center"}}>{total.toLocaleString("en-in", {style:"currency", currency:"INR"})}</th>
+                                    </tr>
+                                </tfoot>
                             </table>
-                            
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-
-
     )
 }
