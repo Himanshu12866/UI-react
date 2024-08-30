@@ -25,6 +25,10 @@ export default function FakeStoreApi() {
                 setProducts(repsonse.data)
             })
     }
+
+
+
+
     function handleSearch(e) {
         if (e.target.value.length === 0) {
             LoadProducts()
@@ -37,8 +41,28 @@ export default function FakeStoreApi() {
     }
     function searchProduct(){
         handleSearch()
-
     }
+    function ChangeSearch(e){
+        if(e.target.value === ""){
+            LoadProducts()
+        }
+    }
+
+
+function RatingChange(e){
+    const search = e.target.value;
+    const filteredProducts = products.filter(product => product.rating.rate.includes(search))
+    setProducts(filteredProducts);
+}
+
+
+
+
+
+
+
+
+
     function FilterLinks() {
         axios.get("https://fakestoreapi.com/products")
             .then(repsonse => {
@@ -59,11 +83,7 @@ export default function FakeStoreApi() {
                 setProducts(response.data)
             })
     }
-    function ChangeSearch(e){
-        if(e.target.value === ""){
-            LoadProducts()
-        }
-    }
+   
     function handleCart(item) {
         alert("Your Item has been added to the cart")
         setArr(prev => [...prev, item])
@@ -141,10 +161,10 @@ export default function FakeStoreApi() {
                     <li className="nav-item d-flex justify-content-center align-items-center" style={{ marginLeft: "40px", height: "20px" }}>
                         <div className="d-flex  justify-content-center align-items-center border border-2 btn  btn-info">
                             <input type="checkbox" className="form-check-input"></input>
-                            <span className="bi bi-star-fill text-light fw-bold" style={{ fontSize: "13px" }}>4 & Above</span>
+                            <span className="bi bi-star-fill text-light fw-bold" onChange={RatingChange} value={4} style={{ fontSize: "13px" }}>4 & Above</span>
                         </div>
                         <div className="d-flex justify-content-center align-items-center border border-2 btn btn-info">
-                            <input type="checkbox" className="form-check-input"></input>
+                            <input type="checkbox" className="form-check-input" value={3.9} onChange={RatingChange}></input>
                             <span className="bi bi-star-fill text-light fw-bold" style={{ fontSize: "13px" }}>3.9 & Below</span>
                         </div>
                     </li>
