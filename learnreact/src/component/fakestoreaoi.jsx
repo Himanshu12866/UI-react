@@ -39,26 +39,38 @@ export default function FakeStoreApi() {
             setProducts(filteredProducts);
         }
     }
-    function searchProduct(){
+    function searchProduct() {
         handleSearch()
     }
-    function ChangeSearch(e){
-        if(e.target.value === ""){
+    function ChangeSearch(e) {
+        if (e.target.value === "") {
             LoadProducts()
         }
     }
 
+    function RatingChange1(e) {
+        if (e.target.checked) {
+            const search = e.target.value;
+            console.log(search)
+            const filteredProducts = products.filter(product => product.rating.rate >= search)
+            setProducts(filteredProducts);
+        }
+        else {
+            LoadProducts()
+        }
 
-function RatingChange(e){
-    const search = e.target.value;
-    const filteredProducts = products.filter(product => product.rating.rate.includes(search))
-    setProducts(filteredProducts);
-}
+    }
 
-
-
-
-
+    function RatingChange(e) {
+        const search = parseInt(e.target.value);
+        if (e.target.checked) {
+            const filteredProducts = products.filter(product => product.rating.rate <= search)
+            setProducts(filteredProducts);
+        }
+        else {
+            LoadProducts()
+        }
+    }
 
 
 
@@ -83,14 +95,14 @@ function RatingChange(e){
                 setProducts(response.data)
             })
     }
-   
+
     function handleCart(item) {
         alert("Your Item has been added to the cart")
         setArr(prev => [...prev, item])
     }
     function handelDelete(id) {
         const newArr = arr.filter(item => item.id !== id)
-        console.log(newArr)
+
         setArr([...newArr])
         alert("Item Removed from the cart")
         SetTotal()
@@ -112,7 +124,7 @@ function RatingChange(e){
         LoadCategory()
         LoadProducts()
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
+
     }, [])
     return (
 
@@ -161,7 +173,7 @@ function RatingChange(e){
                     <li className="nav-item d-flex justify-content-center align-items-center" style={{ marginLeft: "40px", height: "20px" }}>
                         <div className="d-flex  justify-content-center align-items-center border border-2 btn  btn-info">
                             <input type="checkbox" className="form-check-input"></input>
-                            <span className="bi bi-star-fill text-light fw-bold" onChange={RatingChange} value={4} style={{ fontSize: "13px" }}>4 & Above</span>
+                            <span className="bi bi-star-fill text-light fw-bold" value={4} onChange={RatingChange1} style={{ fontSize: "13px" }}>4 & Above</span>
                         </div>
                         <div className="d-flex justify-content-center align-items-center border border-2 btn btn-info">
                             <input type="checkbox" className="form-check-input" value={3.9} onChange={RatingChange}></input>
@@ -177,7 +189,9 @@ function RatingChange(e){
                     products.map((product, index) =>
 
                         <div className="card text-center" style={{ width: "300px", height: "480px", margin: "10px" }} key={index}>
-                            <img src={product.image} style={{ width: "250px", height: "200px" }} className="card-img-top text-center"></img>
+                            <div>         
+                              <img src={product.image} style={{ width: "250px", height: "200px" }} className="card-img-top text-center"></img>
+                            </div>
                             <div className="card-header" style={{ height: "100px" }}>
                                 <p style={{ textOverflow: "ellipsis", fontSize: "12px" }}>{product.title}</p>
                             </div>
