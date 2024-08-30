@@ -39,8 +39,9 @@ alert(` Username : ${name.userName} \n Age : ${name.Age} \n City : ${name.City}
     }
 
     return (
-        <div className="box3 d-flex justify-content-center align-items-center" style={{ width: "100%", height: "100vh", backgroundColor: "rgb(24,155,255)" }}>
+        <div className="box3 d-flex justify-content-center align-items-center" style={{ width: "100%", height: "100vh", backgroundColor: "rgb(29, 49, 65)" }}>
             <div className="card w-50" style={{ height: "auto" }}>
+            <p className="m-2 text-danger">Form Without Any 3rd Party Libraries</p>
                 <div className="card-header">
                     <h2>Enter Your Details</h2>
                 </div>

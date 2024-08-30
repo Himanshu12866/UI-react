@@ -2,7 +2,8 @@
 import "./component/login.component.css";
 import "./component/input.component.css";
 // import FakeStoreApi from "./component/fakestoreaoi";
-import FormDemo from "./component/formdemo";
+// import FormDemo from "./component/formdemo";
+import FormDemo1 from "./component/formDemo1";
 // import FormReact from "./component/form";
 // import FakeStore from "./component/FakeStore";
 // import NASAapi from "./component/nasaapi";
@@ -23,7 +24,8 @@ function App() {
   
      {/* <FakeStoreApi/> */}
      {/* <FormReact /> */}
-     <FormDemo />
+     {/* <FormDemo /> */}
+     <FormDemo1/>
     </div>
   )
 }
