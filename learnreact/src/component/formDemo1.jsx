@@ -5,9 +5,24 @@ import { useState } from "react"
 export default function FormDemo1() {
     const [error, setError] = useState("")
     function handleName(e) {
-        if (e.target.value === "") {
+        const valueName = e.target.value;
+
+
+
+        if (valueName === "") {
             setError("Name is required")
         }
+        else if (valueName.length < 3) {
+            setError("Name should be more than 4 characters")
+        }
+        else if (valueName.length > 12) {
+            setError("Name should be less than 12 characters")
+        }
+        else {
+            setError("")
+
+        }
+
 
     }
 
@@ -22,22 +37,24 @@ export default function FormDemo1() {
 
                 </div>
                 <div className="card-body">
-
-                    <label className="form-label">Username :</label>
-                    <input className="form-control" onChange={handleName} type="text" required placeholder="Enter your Name"></input>
-                    <span>{error}</span>
-                    <label className="form-label my-3">Age</label>
-                    <input className="form-control" type="number" placeholder="Please enter valid Age"></input>
-                    <select className="form-select my-3">
-                        <option value={-1}>Select</option>
-                        <option value={"hyd"}>Hyderabad</option>
-                        <option value={"rewa"}>Rewa</option>
-                        <option value={"satna"}>Satna</option>
-                    </select>       
-                <button className="btn btn-dark w-100 my-3" type="submit">Submit</button>
+                    <form>
+                        <label className="form-label">Username :</label>
+                        <input className="form-control" onChange={handleName} type="text" required placeholder="Enter your Name"></input>
+                        <span className="text-danger">{error}</span>
+                        <br></br>
+                        <label className="form-label my-3">Age</label>
+                        <input className="form-control" type="number" placeholder="Please enter valid Age"></input>
+                        <select className="form-select my-3">
+                            <option value={-1}>Select</option>
+                            <option value={"hyd"}>Hyderabad</option>
+                            <option value={"rewa"}>Rewa</option>
+                            <option value={"satna"}>Satna</option>
+                        </select>
+                        <button className="btn btn-dark w-100 my-3" type="submit">Submit</button>
+                    </form>
+                </div>
             </div>
-        </div>
- 
+
 
         </div >
     )
