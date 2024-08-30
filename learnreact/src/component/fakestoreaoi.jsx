@@ -25,6 +25,20 @@ export default function FakeStoreApi() {
                 setProducts(repsonse.data)
             })
     }
+    function handleSearch(e) {
+        if (e.target.value.length === 0) {
+            LoadProducts()
+        }
+        else {
+            const search = e.target.value.toLowerCase();
+            const filteredProducts = products.filter(product => product.title.toLowerCase().includes(search));
+            setProducts(filteredProducts);
+        }
+    }
+    function searchProduct(){
+        handleSearch()
+
+    }
     function FilterLinks() {
         axios.get("https://fakestoreapi.com/products")
             .then(repsonse => {
@@ -45,6 +59,11 @@ export default function FakeStoreApi() {
                 setProducts(response.data)
             })
     }
+    function ChangeSearch(e){
+        if(e.target.value === ""){
+            LoadProducts()
+        }
+    }
     function handleCart(item) {
         alert("Your Item has been added to the cart")
         setArr(prev => [...prev, item])
@@ -57,28 +76,28 @@ export default function FakeStoreApi() {
         SetTotal()
     }
 
-    function SetTotal(){
+    function SetTotal() {
         let subTotal = 0
         arr.map(inr => {
             subTotal += inr.price
-        })    
+        })
         setTotal(subTotal)
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         SetTotal()
-    },[SetTotal])
+    }, [SetTotal])
 
     useEffect(() => {
         LoadCategory()
         LoadProducts()
-        
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     return (
 
         <div className="box1">
-            <nav className="navbar navbar-expand-sm ">
+            <nav className="navbar navbar-expand-sm m-0 ">
                 <a className="navbar-brand text-danger fs-3 fw-bold">
                     Shopper.
                 </a>
@@ -86,50 +105,50 @@ export default function FakeStoreApi() {
                     <span className="bi bi-list"></span>
                 </button>
                 <div className="navbar-collapse collapse " id="list">
-                    <ol className="navbar-nav">
+                    <ol className="navbar-nav d-flex justify-content-around align-items-center w-100">
                         <li className="nav-item">
-                            <a className="nav-link" style={{cursor:"pointer"}}  onClick={FilterLinks}>All</a>
+                            <a className="nav-link" style={{ cursor: "pointer" }} onClick={FilterLinks}>All</a>
                         </li>
                         {
                             category.map((list, index) =>
-                                <li className="nav-item" style={{cursor:"pointer"}} key={index}>
+                                <li className="nav-item" style={{ cursor: "pointer" }} key={index}>
                                     <a className="nav-link" onClick={FilterLink} id={list}>{list.toUpperCase()}</a>
                                 </li>
                             )
                         }
                         <li className="nav-item">
-                        <div className="input-group w-100">
-                            <input type="text" className="form-control w-50" placeholder="Search Products based on category"></input>
-                            <button className="btn btn-warning input-group-text"><span className="bi bi-search"></span></button>
-                        </div>
-                        
+                            <div className="input-group w-100">
+                                <input type="text" className="form-control w-50" onBlur={handleSearch} onChange={ChangeSearch} placeholder="Search Products based on category"></input>
+                                <button className="btn btn-warning input-group-text" onClick={searchProduct}><span className="bi bi-search"></span></button>
+                            </div>
+
                         </li>
-                      
-                        
+
+
                         <div className="list-items">
-    
+
                             <div className="d-inline">
                                 <button className="btn btn-dark ms-4 position-relative" data-bs-target="#modalBox" data-bs-toggle="modal">
                                     <span className="badge badge-danger rounded rounded-2 fs-4 position-absolute text-light" style={{ bottom: "0px", right: "15px", marginBottom: "30px" }}>{arr.length}</span>
                                     <span className="bi bi-cart3 text-light"></span>
                                 </button>
 
-                              
+
                             </div>
                         </div>
-                       
+
                     </ol>
-                    <li className="nav-item d-flex w-50 justify-content-center align-items-center">
-                           <div className="d-flex border border-2 btn  btn-info">
-                            <input type="checkbox" className="input-form-check"></input>
-                            <span className="bi bi-star-fill text-primary fs-6">4 & Above</span>
-                           </div>
-                           <div className="d-flex border border-2 btn  btn-info">
-                            <input type="checkbox" className="input-form-check"></input>
-                            <span className="bi bi-star-fill text-warning">3 & Below</span>
-                           </div>
-                        </li>
-                        
+                    <li className="nav-item d-flex justify-content-center align-items-center" style={{ marginLeft: "40px", height: "20px" }}>
+                        <div className="d-flex  justify-content-center align-items-center border border-2 btn  btn-info">
+                            <input type="checkbox" className="form-check-input"></input>
+                            <span className="bi bi-star-fill text-light fw-bold" style={{ fontSize: "13px" }}>4 & Above</span>
+                        </div>
+                        <div className="d-flex justify-content-center align-items-center border border-2 btn btn-info">
+                            <input type="checkbox" className="form-check-input"></input>
+                            <span className="bi bi-star-fill text-light fw-bold" style={{ fontSize: "13px" }}>3.9 & Below</span>
+                        </div>
+                    </li>
+
 
                 </div>
             </nav>
@@ -177,10 +196,10 @@ export default function FakeStoreApi() {
                                         arr.map((data, index) =>
                                             <tr key={index} style={{ height: "30px" }}>
                                                 <td>{data.id}</td>
-                                                <td style={{fontSize:"12px"}}>{data.title}</td>
+                                                <td style={{ fontSize: "12px" }}>{data.title}</td>
                                                 <td><img style={{ width: "50px", height: "50px", marginTop: "-5px", padding: "0" }} src={data.image}></img></td>
                                                 <td><b>{data?.price?.toLocaleString('en-in', { style: "currency", currency: "INR" })}</b></td>
-                                                <td><button className=" btn btn-danger bi bi-trash-fill"  name={index} onClick={()=>handelDelete(data.id)}></button></td>
+                                                <td><button className=" btn btn-danger bi bi-trash-fill" name={index} onClick={() => handelDelete(data.id)}></button></td>
 
                                             </tr>
                                         )
@@ -188,8 +207,8 @@ export default function FakeStoreApi() {
                                 </tbody>
                                 <tfoot>
                                     <tr>
-                                        <th colSpan={"2"} style={{textAlign:"center"}}>Total</th>
-                                        <th colSpan={"2"} style={{textAlign:"center"}}>{total.toLocaleString("en-in", {style:"currency", currency:"INR"})}</th>
+                                        <th colSpan={"2"} style={{ textAlign: "center" }}>Total</th>
+                                        <th colSpan={"2"} style={{ textAlign: "center" }}>{total.toLocaleString("en-in", { style: "currency", currency: "INR" })}</th>
                                     </tr>
                                 </tfoot>
                             </table>
