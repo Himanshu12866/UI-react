@@ -78,15 +78,15 @@ export default function FakeStoreApi() {
     return (
 
         <div className="box1">
-            <nav className="navbar navbar-expand-sm">
-                <a className="navbar-brand text-danger">
+            <nav className="navbar navbar-expand-sm ">
+                <a className="navbar-brand text-danger fs-3 fw-bold">
                     Shopper.
                 </a>
                 <button className="navbar-toggler" data-bs-target="#list" data-bs-toggle="collapse">
-                    <span className="bi bi-list"> </span>
+                    <span className="bi bi-list"></span>
                 </button>
                 <div className="navbar-collapse collapse " id="list">
-                    <ol className="navbar-nav d-flex justify-content-between align-items-center">
+                    <ol className="navbar-nav">
                         <li className="nav-item">
                             <a className="nav-link" style={{cursor:"pointer"}}  onClick={FilterLinks}>All</a>
                         </li>
@@ -97,22 +97,39 @@ export default function FakeStoreApi() {
                                 </li>
                             )
                         }
+                        <li className="nav-item">
+                        <div className="input-group w-100">
+                            <input type="text" className="form-control w-50" placeholder="Search Products based on category"></input>
+                            <button className="btn btn-warning input-group-text"><span className="bi bi-search"></span></button>
+                        </div>
+                        
+                        </li>
+                      
+                        
                         <div className="list-items">
-                            <div className="d-inline">
-                                <span className="bi bi-person"></span>
-                            </div>
-                            <div className="d-inline">
-                                <span className="bi bi-heart"></span>
-                            </div>
+    
                             <div className="d-inline">
                                 <button className="btn btn-dark ms-4 position-relative" data-bs-target="#modalBox" data-bs-toggle="modal">
-                                    <span className="badge badge-dark rounded rounded-2 fs-4 position-absolute text-light" style={{ bottom: "0px", right: "15px", marginBottom: "30px" }}>{arr.length}</span>
+                                    <span className="badge badge-danger rounded rounded-2 fs-4 position-absolute text-light" style={{ bottom: "0px", right: "15px", marginBottom: "30px" }}>{arr.length}</span>
                                     <span className="bi bi-cart3 text-light"></span>
                                 </button>
-                            </div>
 
+                              
+                            </div>
                         </div>
+                       
                     </ol>
+                    <li className="nav-item d-flex w-50 justify-content-center align-items-center">
+                           <div className="d-flex border border-2 btn  btn-info">
+                            <input type="checkbox" className="input-form-check"></input>
+                            <span className="bi bi-star-fill text-primary fs-6">4 & Above</span>
+                           </div>
+                           <div className="d-flex border border-2 btn  btn-info">
+                            <input type="checkbox" className="input-form-check"></input>
+                            <span className="bi bi-star-fill text-warning">3 & Below</span>
+                           </div>
+                        </li>
+                        
 
                 </div>
             </nav>

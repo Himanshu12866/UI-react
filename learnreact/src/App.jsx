@@ -1,8 +1,8 @@
 // import LoginComponent from './component/login.component'
 import "./component/login.component.css";
 import "./component/input.component.css";
-// import FakeStoreApi from "./component/fakestoreaoi";
-import FormReact from "./component/form";
+import FakeStoreApi from "./component/fakestoreaoi";
+// import FormReact from "./component/form";
 // import FakeStore from "./component/FakeStore";
 // import NASAapi from "./component/nasaapi";
 // import "../src/App.css";
@@ -20,8 +20,8 @@ function App() {
   return (
     <div className='container'>
   
-     {/* <FakeStoreApi/> */}
-     <FormReact />
+     <FakeStoreApi/>
+     {/* <FormReact /> */}
     </div>
   )
 }
