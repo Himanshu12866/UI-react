@@ -5,10 +5,8 @@ import { useState } from "react"
 export default function FormDemo1() {
     const [error, setError] = useState("");
     const [errorAge,setErrorAge] = useState("");
-    const [className ,setclassName] = useState(
-        ""
-    )
-    const [errorCity, setErrorCity]  = useState("")
+    const [className ,setclassName] = useState( "");
+    const [errorCity, setErrorCity]  = useState("");
     function handleName(e) {
         const valueName = e.target.value;
         if (valueName === "") {
@@ -49,12 +47,22 @@ export default function FormDemo1() {
             setErrorAge("Acctepted")
         }
     }
+
+
     function cityChange(e){
         const valueCity = e.target.value;
         console.log(valueCity)
-        if(valueCity === -1){
+        if(valueCity === "null"){
+            setclassName("text-danger")
             setErrorCity("Please Select city")
         }
+        else {
+            setclassName("text-success")
+            setErrorCity("Selected")
+        }
+    }
+    function handleSubmit(){
+        alert("Login Successfully")
     }
 
 
@@ -68,7 +76,7 @@ export default function FormDemo1() {
 
                 </div>
                 <div className="card-body">
-                    <form>
+                    <form onSubmit={handleSubmit}>
                         <label className="form-label">Username :</label>
                         <input className="form-control" onChange={handleName} type="text" required placeholder="Enter your Name"></input>
                         <span className={className}>{error}</span>
@@ -77,13 +85,15 @@ export default function FormDemo1() {
                         <input className="form-control" type="number" onChange={handleAge} placeholder="Please enter valid Age"></input>
                         <span className={className}>{errorAge}</span>
                         <br></br>
-                        <select className="form-select my-1" onChange={cityChange}>
-                            <option value={"-1"}>Select</option>
+                        <select className="form-select my-1" required onChange={cityChange}>
+                            <option value={"null"}>Select</option>
                             <option value={"hyd"}>Hyderabad</option>
                             <option value={"rewa"}>Rewa</option>
                             <option value={"satna"}>Satna</option>
                         </select>
                         <span className={className}>{errorCity}</span>
+                        <br></br>
+
                         <button className="btn btn-dark w-100 my-3" type="submit">Submit</button>
                     </form>
                 </div>
