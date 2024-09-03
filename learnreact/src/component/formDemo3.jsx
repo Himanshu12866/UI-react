@@ -12,7 +12,7 @@ export default function FormDemo3(){
             city:""
         },
         validationSchema:yup.object({
-            Username : yup.string().required("Username Require").min(4, "Userename must be more than 4 chars").max(12 , "Username must be less than 12 chars"),
+            Username : yup.string().required("Username Require").min(4, "Userename must be more than 4 chars").max(16 , "Username must be less than 12 chars"),
             Age : yup.number().required("Age required").min(18, "Age must be 18 or above").max(50 , "Age shuold be less than 50"),
             Mobile: yup.string().required("Mobile No. Must be enter").matches(/\w{10}/ , "Please enter valid Number"),
             city:yup.string().required("City is required")
@@ -31,9 +31,9 @@ export default function FormDemo3(){
                 <h2><span className="bi bi-person-fill"></span> User Login</h2>
             </div>
             <div className="card-body">
-                <form className="p-2" onChange={formik.handleSubmit}>
+                <form className="p-2" onSubmit={formik.handleSubmit}>
                     <label className="form-label">Username :</label>
-                    <input className="form-control m-1" type="text" name="Usernamr" onChange={formik.handleChange} placeholder="Enter Your Name"></input>
+                    <input className="form-control m-1" type="text" name="Username" onChange={formik.handleChange} placeholder="Enter Your Name"></input>
                     <div className="text-danger">{formik.errors.Username}</div>
                     <label className="form-label my-2">Age :</label>
                     <input className="form-control m-1" type="text" name="Age"  onChange={formik.handleChange} placeholder="Please Enter Age" ></input>
