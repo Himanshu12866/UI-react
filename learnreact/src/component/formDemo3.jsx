@@ -14,10 +14,13 @@ export default function FormDemo3(){
         validationSchema:yup.object({
             Username : yup.string().required("Username Require").min(4, "Userename must be more than 4 chars").max(12 , "Username must be less than 12 chars"),
             Age : yup.number().required("Age required").min(18, "Age must be 18 or above").max(50 , "Age shuold be less than 50"),
-            Mobile: yup.string().required("Mobile No. Must be enter").matches(/\w{10}/ , "Please enter valid Number").min(10 , "Mobile number shuold be 10 digit").max(10,"Must be equla to 10 digits"),
+            Mobile: yup.string().required("Mobile No. Must be enter").matches(/\w{10}/ , "Please enter valid Number"),
             city:yup.string().required("City is required")
 
-        })
+        }),
+        onSubmit: (values) =>{
+            console.log(values)
+        }
     })
 
     return (
