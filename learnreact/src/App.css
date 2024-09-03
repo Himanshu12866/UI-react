@@ -5,6 +5,7 @@
   overflow: hidden;
   justify-content: center;
 align-items: center;
+background-color: rgb(224, 140, 140);
 }
 @media(max-width:500px){
   .container{

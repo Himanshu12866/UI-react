@@ -1,6 +1,8 @@
 // import LoginComponent from './component/login.component'
 import "./component/login.component.css";
 import "./component/input.component.css";
+import "./App.css"
+import FormDemo2 from "./component/formValidation1";
 // import FakeStoreApi from "./component/fakestoreaoi";
 // import FormDemo from "./component/formdemo";
 // import FormDemo1 from "./component/formDemo1";
@@ -18,6 +20,7 @@ import "./component/input.component.css";
 // import InputBox from './component/input.component';
 // import DataBinding from './component/data';
 
+
 function App() {
   return (
     <div className='container'>
@@ -26,6 +29,7 @@ function App() {
      {/* <FormReact /> */}
      {/* <FormDemo /> */}
      {/* <FormDemo1/> */}
+<FormDemo2/>
     </div>
   )
 }
