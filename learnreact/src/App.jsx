@@ -3,7 +3,8 @@ import "./component/login.component.css";
 import "./component/input.component.css";
 import "./App.css"
 // import FormDemo2 from "./component/formValidation1";
-import FormDemo3 from "./component/formDemo3";
+// import FormDemo3 from "./component/formDemo3";
+import FormDemo4 from "./component/formikSpread";
 // import FakeStoreApi from "./component/fakestoreaoi";
 // import FormDemo from "./component/formdemo";
 // import FormDemo1 from "./component/formDemo1";
@@ -31,7 +32,8 @@ function App() {
       {/* <FormDemo /> */}
       {/* <FormDemo1/> */}
       {/* <FormDemo2/> */}
-      <FormDemo3/>
+      {/* <FormDemo3/> */}
+      <FormDemo4 />
     </div>
   )
 }
