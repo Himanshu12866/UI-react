@@ -35,6 +35,9 @@ export default function FormDemo2() {
             else if (formData.Age.length < 18) {
                 errors.Age = "Age should be more than 18"
             }
+            else if(formData.Age.length > 50){
+                errors.Age = "Age should be less than 50"
+            }
          
             else {
                 errors.Age = ""
