@@ -25,7 +25,7 @@ export default function FormDemo2() {
             }
         }
 
-        if (formData.Age.length === "") {
+        if (formData.Age.length === 0) {
             errors.Age = "Age Required"
         }
         else {
@@ -35,9 +35,7 @@ export default function FormDemo2() {
             else if (formData.Age.length < 18) {
                 errors.Age = "Age should be more than 18"
             }
-            else if (formData.Age.length > 50) {
-                errors.Age = "Age should be less than 50"
-            }
+         
             else {
                 errors.Age = ""
             }
@@ -62,6 +60,7 @@ export default function FormDemo2() {
         else {
             errors.City = ""
         }
+        return errors;
     }
 
 
@@ -90,13 +89,13 @@ export default function FormDemo2() {
                     <form className="p-3" onSubmit={formik.handleSubmit}>
                         <label className="form-label m-1">Username :</label>
                         <input type="text" onChange={formik.handleChange} name="UserName" className="form-control m-1" ></input>
-                        <span className="text-danger">{formik.errors.UserName}</span>
+                        <span className="text-danger">{formik.errors.UserName}</span> <br></br>
                         <label className="form-label m-1">Age :</label>
                         <input className="form-control m-1" onChange={formik.handleChange} name="Age" type="text"></input>
-                        <span className="text-danger">{formik.errors.Age}</span>
+                        <span className="text-danger">{formik.errors.Age}</span> <br></br>
                         <label className="form-label m-1">Mobile No. :</label>
                         <input className="form-control m-1" type="text" onChange={formik.handleChange} name="Mobile" ></input>
-                        <span className="text-danger">{formik.errors.Mobile}</span>
+                        <span className="text-danger">{formik.errors.Mobile}</span> <br></br>
                         <select className="form-select m-1" name="City" onChange={formik.handleChange} >
                             <option value="-1">select City</option>
                             <option value="hyd">Hyderabad</option>
@@ -105,9 +104,7 @@ export default function FormDemo2() {
                         </select>
                         <span className="text-danger"> {formik.errors.City}</span>
                         <br></br>
-
                         <button className="btn btn-dark w-100 m-1 my-2" type="submit"> Submit</button>
-
                     </form>
                 </div>
             </div>
