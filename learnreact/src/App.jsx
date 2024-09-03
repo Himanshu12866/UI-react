@@ -2,7 +2,8 @@
 import "./component/login.component.css";
 import "./component/input.component.css";
 import "./App.css"
-import FormDemo5 from "./component/formdemo5";
+import FormDemo6 from "./component/formdemo6";
+// import FormDemo5 from "./component/formdemo5";
 // import FormDemo2 from "./component/formValidation1";
 // import FormDemo3 from "./component/formDemo3";
 // import FormDemo4 from "./component/formikSpread";
@@ -35,7 +36,8 @@ function App() {
       {/* <FormDemo2/> */}
       {/* <FormDemo3/> */}
       {/* <FormDemo4 /> */}
-      <FormDemo5/>
+      {/* <FormDemo5/> */}
+      <FormDemo6 />
     </div>
   )
 }

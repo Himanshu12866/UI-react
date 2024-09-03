@@ -21,7 +21,7 @@ export default function FormDemo5() {
     return (
         <section className="d-flex justify-content-center align-items-center w-75">
             <div className="card w-75">
-                <p className="p-3 text-primary fw-bold">Formik Sprea Approach</p>
+                <p className="p-3 text-primary fw-bold">Formik Spread Approach</p>
                 <div className="card-header text-center">
                     <h1><span className="bi bi-person-fill"></span>User Login</h1>
                 </div>
