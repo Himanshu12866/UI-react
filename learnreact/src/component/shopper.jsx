@@ -17,7 +17,7 @@ export default function ShopperApp() {
 
     }])
     const [category, categories] = useState([]);
-    const [cardItems, setcardItems] = useState([])
+    const [cardItems, setcardItems] = useState([]);
 
     // category.unshift("all")
     function LoadCategory() {
@@ -48,30 +48,64 @@ export default function ShopperApp() {
                 setProducts(response.data)
             })
     }
-    
-    function LoadALL(){
+
+    function LoadALL() {
         LoadProducts()
     }
 
 
-    function typeProduct(e){
+    function typeProduct(e) {
         let InputValue = e.target.value;
         const filteredProducts = products.filter(obj => obj.title.toLowerCase().includes(InputValue));
         setProducts(filteredProducts)
     }
-function searchProduct(){
-    typeProduct()
+    function searchProduct() {
+        typeProduct()
+    }
+    function BackToAll() {
+        LoadProducts()
+    }
+
+function RatingChange1(e){
+    let rating = e.target.value;
+    if(e.target.checked){
+        const filterRating = products.filter(product => product.rating.rate >= rating);
+        setProducts(filterRating);
+    }
+    else{
+        LoadProducts()
+    }
 }
-function BackToAll(){
-    LoadProducts()
+function RatingChange2(e){
+    let rating = e.target.value;
+    if(e.target.checked){
+        const filterRating = products.filter(product => product.rating.rate <= rating);
+        setProducts(filterRating);
+    }
+    else{
+        LoadProducts()
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
     useEffect(() => {
 
         LoadCategory();
         LoadProducts()
-        
-    } , [])
-    
+
+    }, [])
+
     return (
         <div>
             <nav className="navbar navbar-expand-sm">
@@ -81,9 +115,9 @@ function BackToAll(){
                 </button>
                 <div className="navbar-collapse collapse" id="lists">
                     <ol className="navbar-nav">
-                    <li className="nav-item">
-                        <a className="nav-link" onClick={LoadALL}>All</a>
-                    </li>
+                        <li className="nav-item">
+                            <a className="nav-link" onClick={LoadALL}>All</a>
+                        </li>
                         {
                             category.map((items, index) =>
                                 <li className="nav-item" key={index}  >
@@ -101,14 +135,14 @@ function BackToAll(){
                             </div>
                         </li>
                         <li className="nav-item d-lg-flex justify-content-center">
-                            <input type="checkbox" value={4} className="form-check-input"></input>
+                            <input type="checkbox" value={4} onChange={RatingChange1} className="form-check-input"></input>
                             <p>
                                 <span className="bi bi-star-fill"> 4 or Above</span>
                             </p>
 
                         </li>
                         <li className="nav-item d-lg-flex ms-2">
-                            <input type="checkbox" value={3.9} className="form-check-input"></input>
+                            <input type="checkbox" value={3.9} onChange={RatingChange2} className="form-check-input"></input>
                             <p >
                                 <span className="bi bi-star-fill"> 3.9 or Below</span>
                             </p>
