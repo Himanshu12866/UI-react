@@ -15,17 +15,17 @@
 
 import { createContext,useState } from "react";
 import ChildNode from "./child-node";
-let contextDemo = createContext(null);
+ export let ContextDemo1 = createContext(null);
 
 
 const Node = () => {
     const [msg, setMsg] = useState("");
     return(
-        <contextDemo.Provider value={msg}>
+        <ContextDemo1.Provider value={msg}>
             <h1>Node Box</h1>
             <input type="text" onChange={(e) => setMsg(e.target.value)}></input>
             <ChildNode/>
-        </contextDemo.Provider>
+        </ContextDemo1.Provider>
     )
 }
 
