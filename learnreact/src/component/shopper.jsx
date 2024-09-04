@@ -38,7 +38,8 @@ export default function ShopperApp() {
     function AddToCart(cartitems) {
         alert("Added To Card");
         setcardItems(prev => [...prev, cartitems])
-        console.log(cardItems)
+
+
 
     }
     function FilterLink(e) {
@@ -66,27 +67,27 @@ export default function ShopperApp() {
         LoadProducts()
     }
 
-function RatingChange1(e){
-    let rating = e.target.value;
-    if(e.target.checked){
-        const filterRating = products.filter(product => product.rating.rate >= rating);
-        setProducts(filterRating);
+    function RatingChange1(e) {
+        let rating = e.target.value;
+        if (e.target.checked) {
+            const filterRating = products.filter(product => product.rating.rate >= rating);
+            setProducts(filterRating);
+        }
+        else {
+            LoadProducts()
+        }
     }
-    else{
-        LoadProducts()
-    }
-}
-function RatingChange2(e){
-    let rating = e.target.value;
-    if(e.target.checked){
-        const filterRating = products.filter(product => product.rating.rate <= rating);
-        setProducts(filterRating);
-    }
-    else{
-        LoadProducts()
-    }
+    function RatingChange2(e) {
+        let rating = e.target.value;
+        if (e.target.checked) {
+            const filterRating = products.filter(product => product.rating.rate <= rating);
+            setProducts(filterRating);
+        }
+        else {
+            LoadProducts()
+        }
 
-}
+    }
 
 
 
@@ -149,7 +150,7 @@ function RatingChange2(e){
 
                         </li>
                         <li className="nav-item ms-3">
-                            <button className="btn btn-dark">
+                            <button className="btn btn-dark" data-bs-target="#modalBox" data-bs-toggle="modal">
                                 <span className="badge bg-danger rounded rounded-circle position-absolute" style={{ top: "10px" }}>{cardItems.length}</span>
                                 <span className="bi bi-cart text-light" style={{ marginLeft: "-2px" }}></span></button>
                         </li>
@@ -183,6 +184,50 @@ function RatingChange2(e){
                     )
                 }
             </main>
+
+            <div className="modal fade modal-fullscreen" id="modalBox" >
+                <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h2 className="bg-dark text-light text-center p-2 w-75">Your Cart</h2>
+                            <button className="btn btn-close " data-bs-dismiss="modal"> </button>
+                        </div>
+                        <div className="modal-body">
+                            <table className="table">
+                                <thead>
+                                    <tr>
+                                        <th>Index</th>
+                                        <th>Name</th>
+                                        <th>Preview</th>
+                                        <th>Edit</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+                                   {
+                                    cardItems.map((list,index) => 
+                                    <tr key={index}>
+                                    <td>{list.id}</td>
+                                    <td>{list.title}</td>
+                                    <td style={{mixBlendMode:"multiply"}}>
+                                        <img src={list.image} style={{marginTop:"-0px", width: "30px", height: "30"}}/>
+                                    </td>
+                                    <td>
+                                        <button className="btn btn-danger bi bi-trash-fill"> </button>
+                                    </td>
+
+                                    </tr>
+                                    )
+                                   }
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
 
         </div>
     )
