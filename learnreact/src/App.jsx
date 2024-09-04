@@ -2,7 +2,8 @@
 import "./component/login.component.css";
 import "./component/input.component.css";
 import "./App.css"
-import Node from "./component/context-demo/node";
+// import Node from "./component/context-demo/node";
+import ShopperApp from "./component/shopper";
 // import ShopperApp from "./component/shopper";
 // import GrandP from "./component/context/GrandP";
 // import FormDemo6 from "./component/formdemo6";
@@ -42,8 +43,9 @@ function App() {
       {/* <FormDemo5/> */}
       {/* <FormDemo6 /> */}
       {/* <GrandP /> */}
+      <ShopperApp />
       
-<Node />
+{/* <Node /> */}
     </div>
   )
 }
