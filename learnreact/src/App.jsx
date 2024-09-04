@@ -2,7 +2,8 @@
 import "./component/login.component.css";
 import "./component/input.component.css";
 import "./App.css"
-import FormDemo6 from "./component/formdemo6";
+import ShopperApp from "./component/shopper";
+// import FormDemo6 from "./component/formdemo6";
 // import FormDemo5 from "./component/formdemo5";
 // import FormDemo2 from "./component/formValidation1";
 // import FormDemo3 from "./component/formDemo3";
@@ -37,7 +38,9 @@ function App() {
       {/* <FormDemo3/> */}
       {/* <FormDemo4 /> */}
       {/* <FormDemo5/> */}
-      <FormDemo6 />
+      {/* <FormDemo6 /> */}
+      <ShopperApp />
+
     </div>
   )
 }
