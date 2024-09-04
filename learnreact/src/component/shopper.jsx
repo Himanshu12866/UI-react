@@ -47,6 +47,17 @@ useEffect(() => {
                             )
 
                         }
+                        <li className="nav-item mx-2">
+                            <div className="input-group">
+                                <input className="form-control"></input>
+                                <button className="input-group-text text-center">
+                                    <span className="bi bi-search"></span>
+                                </button>
+                            </div>
+                        </li>
+                        <li className="nav-item">
+                            
+                        </li>
                     </ol>
                 </div>
 
