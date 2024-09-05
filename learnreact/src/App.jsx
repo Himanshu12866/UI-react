@@ -2,6 +2,7 @@
 import "./component/login.component.css";
 import "./component/input.component.css";
 import "./App.css"
+import Captcha from "./component/captcha";
 
 // import Node from "./component/context-demo/node";
 // import ShopperApp from "./component/shopper";
@@ -46,7 +47,7 @@ function App() {
       {/* <GrandP /> */}
       {/* <ShopperApp /> */}
 
-      <Capcha />
+      <Captcha/>
 {/* <Node /> */}
     </div>
   )
