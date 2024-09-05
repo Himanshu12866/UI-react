@@ -18,7 +18,7 @@ export default function ShopperApp() {
     }])
     const [category, categories] = useState([]);
     const [cardItems, setcardItems] = useState([]);
-    const [count, setCount] = useState(0)
+    const [count, setCount] = useState()
 
     // category.unshift("all")
     function LoadCategory() {
@@ -92,7 +92,12 @@ export default function ShopperApp() {
         const NewItem = cardItems.filter(dlt => dlt.id !== id);
         setcardItems([...NewItem]);
     }
-
+function IncreMent(e){
+    let increment = e.target.value;
+    increment++;
+    setCount(increment);
+    console.log(count)
+}
 
     useEffect(() => {
 
@@ -204,7 +209,7 @@ export default function ShopperApp() {
                                         cardItems.map((list, index) =>
                                             <tr key={index}>
                                                 <td>{list.id}</td>
-                                                <td><button  className="btn btn-info d-block">{count}</button></td>
+                                                <td><button  className="btn btn-info d-block" value={count} onClick={IncreMent}>{count}</button></td>
                                                 <td>{list.title}</td>
                                                 <td className="fw-bold">{list.price.toLocaleString("en-in", { style: "currency", currency: "INR" })}</td>
                                                 <td style={{ mixBlendMode: "multiply" }}>
