@@ -34,7 +34,7 @@ export default function Captcha() {
         if (show) {
             setType("text")
             setShow(false)
-            slashEye("bi bi-eye")
+            slashEye("bi bi-eye text-light")
 
 
         } else {
@@ -50,7 +50,7 @@ export default function Captcha() {
         <div className="d-flex justify-content-center">
             <div className="card mt-2 w-75">
 
-                <div className="card-header">
+                <div className="card-header bg-info text-light text-center">
                     <h1>Registration Form</h1>
                 </div>
                 <div className="card-body">
@@ -62,7 +62,7 @@ export default function Captcha() {
 
                         <div className="input-group">
                             <input className="form-control my-1" type={type} name="psw"></input>
-                            <span className="input-group-text bi bi-eye-slash my-1 bg-warning" onClick={ChangeType}></span>
+                            <span className={`btn btn-secondary input-group-text my-1  ${eye}`} onClick={ChangeType}></span>
                         </div>
 
                         <p className="text-danger">{ }</p>
@@ -77,11 +77,14 @@ export default function Captcha() {
                             <option value="hyd">Hyderabad</option>
                         </select>
                         <p className="text-danger">{formik.errors.city}</p>
+                        <div>
+                            <button className="btn btn-success w-100 my-1">Submit</button>
+                        </div>
                     </form>
                     <div className="d-flex justify-content-between my-2">
-                        <label className="form-label">Please Enter The Captcha :</label> <button onClick={ChangeCode} className={`btn btn-secondary ${eye}`}></button>
+                        <label className="form-label">Please Enter The Captcha :</label> <button onClick={ChangeCode} className="btn btn-secondary bi bi-arrow-counterclockwise"></button>
                     </div>
-                    <input type="text" className="form-control"></input>
+                    <input type="number" className="form-control"></input>
                     <button className="btn btn-dark text-light w-100 my-3">{otp}</button>
                 </div>
             </div>
