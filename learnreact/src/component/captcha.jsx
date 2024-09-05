@@ -1,8 +1,13 @@
 import useCapcha from "./Hooks/captch"
 import { useFormik } from "formik"
+import { useState } from "react";
 import *as yup from "yup";
 
 export default function Captcha() {
+    const [otp, seOtp] = useState(" OTP");
+    const [type, setType] = useState("password")
+    const [show, setShow] = useState(false);
+    const [eye, slashEye] = useState("bi bi-eye-slash")
 
     const formik = useFormik({
         initialValues: {
@@ -13,18 +18,38 @@ export default function Captcha() {
         },
         validationSchema: yup.object({
             name: yup.string().required("Enter Username"),
-            psw: yup.string().required("Required"),
+
             Mobile: yup.string().required("Please Enter Valid Number").matches(/\w{10}/, "Please Enter Valid number"),
-            city: yup.string().required()
+            city: yup.string().required("Please Select City")
         })
     })
+    function ChangeCode() {
 
-    let code = useCapcha()
+        let code = useCapcha()
+        seOtp(code)
+    }
+
+    function ChangeType() {
+
+        if (show) {
+            setType("text")
+            setShow(false)
+            slashEye("bi bi-eye")
+
+
+        } else {
+            setType("password")
+            setShow(true);
+            slashEye("bi bi-eye-slash")
+
+        }
+    }
+
 
     return (
         <div className="d-flex justify-content-center">
-            <div className="card mt-2">
-                <p>{code}</p>
+            <div className="card mt-2 w-75">
+
                 <div className="card-header">
                     <h1>Registration Form</h1>
                 </div>
@@ -34,12 +59,30 @@ export default function Captcha() {
                         <input type="text" onChange={formik.handleChange} className="form-control my-1" name="name" />
                         <p className="text-danger">{formik.errors.name}</p>
                         <label className="form-label">Password:</label>
-                        <input className="form-control my-1" name="psw"></input>
-                        <p className="text-danger">{formik.errors.psw}</p>
+
+                        <div className="input-group">
+                            <input className="form-control my-1" type={type} name="psw"></input>
+                            <span className="input-group-text bi bi-eye-slash my-1 bg-warning" onClick={ChangeType}></span>
+                        </div>
+
+                        <p className="text-danger">{ }</p>
                         <label className="form-label">Mobile No. :</label>
                         <input className="form-control my-1" type="text" name="Mobile" onChange={formik.handleChange}></input>
                         <p className="text-danger">{formik.errors.Mobile}</p>
+                        <label className="form-label">City :</label>
+                        <select className="form-select my-1" name="city" onChange={formik.handleChange}>
+                            <option value="">Select City</option>
+                            <option value="delhi">Delhi</option>
+                            <option value="mumbai">Mumbai</option>
+                            <option value="hyd">Hyderabad</option>
+                        </select>
+                        <p className="text-danger">{formik.errors.city}</p>
                     </form>
+                    <div className="d-flex justify-content-between my-2">
+                        <label className="form-label">Please Enter The Captcha :</label> <button onClick={ChangeCode} className={`btn btn-secondary ${eye}`}></button>
+                    </div>
+                    <input type="text" className="form-control"></input>
+                    <button className="btn btn-dark text-light w-100 my-3">{otp}</button>
                 </div>
             </div>
         </div>
