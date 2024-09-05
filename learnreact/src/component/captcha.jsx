@@ -14,7 +14,7 @@ export default function Captcha() {
         validationSchema: yup.object({
             name: yup.string().required("Enter Username"),
             psw: yup.string().required("Required"),
-            Mobile: yup.string().required("Please Enter Valid Number").matches(/^\(\+91\)\d{10}$/, "Please Enter valid number"),
+            Mobile: yup.string().required("Please Enter Valid Number").matches(/\w{10}/, "Please Enter Valid number"),
             city: yup.string().required()
         })
     })
@@ -37,7 +37,7 @@ export default function Captcha() {
                         <input className="form-control my-1" name="psw"></input>
                         <p className="text-danger">{formik.errors.psw}</p>
                         <label className="form-label">Mobile No. :</label>
-                        <input className="form-control my-1" type="text" name="Number" onChange={formik.handleChange}></input>
+                        <input className="form-control my-1" type="text" name="Mobile" onChange={formik.handleChange}></input>
                         <p className="text-danger">{formik.errors.Mobile}</p>
                     </form>
                 </div>
