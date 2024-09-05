@@ -54,7 +54,7 @@ export default function Captcha() {
                     <h1>Registration Form</h1>
                 </div>
                 <div className="card-body">
-                    <form>
+                    <form onSubmit={formik.handleSubmit}>
                         <label className="form-label"> Userename :</label>
                         <input type="text" onChange={formik.handleChange} className="form-control my-1" name="name" />
                         <p className="text-danger">{formik.errors.name}</p>
@@ -80,12 +80,12 @@ export default function Captcha() {
                         <div>
                             <button className="btn btn-success w-100 my-1">Submit</button>
                         </div>
-                    </form>
                     <div className="d-flex justify-content-between my-2">
                         <label className="form-label">Please Enter The Captcha :</label> <button onClick={ChangeCode} className="btn btn-secondary bi bi-arrow-counterclockwise"></button>
                     </div>
-                    <input type="number" className="form-control"></input>
-                    <button className="btn btn-dark text-light w-100 my-3">{otp}</button>
+                    <input type="number" className="form-control" ></input>
+                    <button className="btn btn-dark text-light w-100 my-3" style={{letterSpacing:"1px"}}>{otp}</button>
+                    </form>
                 </div>
             </div>
         </div>
