@@ -18,6 +18,7 @@ export default function ShopperApp() {
     }])
     const [category, categories] = useState([]);
     const [cardItems, setcardItems] = useState([]);
+    const [count, setCount] = useState(0)
 
     // category.unshift("all")
     function LoadCategory() {
@@ -36,12 +37,10 @@ export default function ShopperApp() {
     }
 
     function AddToCart(cartitems) {
-        alert("Added To Card");
+        // alert("Added To Card");
         setcardItems(prev => [...prev, cartitems])
+        }
 
-
-
-    }
     function FilterLink(e) {
         let link = e.target.id;
         axios.get(`https://fakestoreapi.com/products/category/${link}`)
@@ -88,16 +87,11 @@ export default function ShopperApp() {
         }
 
     }
-
-
-
-
-
-
-
-
-
-
+    function DeleteItem(id) {
+        // alert("deleted")
+        const NewItem = cardItems.filter(dlt => dlt.id !== id);
+        setcardItems([...NewItem]);
+    }
 
 
     useEffect(() => {
@@ -197,28 +191,32 @@ export default function ShopperApp() {
                                 <thead>
                                     <tr>
                                         <th>Index</th>
+                                        <th>Items</th>
                                         <th>Name</th>
+                                        <th>Price</th>
                                         <th>Preview</th>
                                         <th>Edit</th>
                                     </tr>
 
                                 </thead>
                                 <tbody>
-                                   {
-                                    cardItems.map((list,index) => 
-                                    <tr key={index}>
-                                    <td>{list.id}</td>
-                                    <td>{list.title}</td>
-                                    <td style={{mixBlendMode:"multiply"}}>
-                                        <img src={list.image} style={{marginTop:"-0px", width: "30px", height: "30"}}/>
-                                    </td>
-                                    <td>
-                                        <button className="btn btn-danger bi bi-trash-fill"> </button>
-                                    </td>
+                                    {
+                                        cardItems.map((list, index) =>
+                                            <tr key={index}>
+                                                <td>{list.id}</td>
+                                                <td><button  className="btn btn-info d-block">{count}</button></td>
+                                                <td>{list.title}</td>
+                                                <td className="fw-bold">{list.price.toLocaleString("en-in", { style: "currency", currency: "INR" })}</td>
+                                                <td style={{ mixBlendMode: "multiply" }}>
+                                                    <img src={list.image} style={{ marginTop: "-0px", width: "30px", height: "30" }} />
+                                                </td>
+                                                <td>
+                                                    <button className="btn btn-danger bi bi-trash-fill" onClick={() => DeleteItem(list.id)}> </button>
+                                                </td>
 
-                                    </tr>
-                                    )
-                                   }
+                                            </tr>
+                                        )
+                                    }
                                 </tbody>
                             </table>
 
