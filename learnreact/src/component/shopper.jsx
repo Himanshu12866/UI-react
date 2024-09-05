@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from 'axios';
 
-
 export default function ShopperApp() {
 
     const [products, setProducts] = useState([{
@@ -14,56 +13,65 @@ export default function ShopperApp() {
             count: 0
         },
         category: ""
+    }]);
 
-    }])
     const [category, categories] = useState([]);
     const [cardItems, setcardItems] = useState([]);
-    const [count, setCount] = useState()
 
-    // category.unshift("all")
     function LoadCategory() {
-
         axios.get("https://fakestoreapi.com/products/categories")
             .then(category => {
                 categories(category.data);
-            })
-
+            });
     }
+
     function LoadProducts() {
         axios.get("https://fakestoreapi.com/products")
             .then(response => {
-                setProducts(response.data)
-            })
+                setProducts(response.data);
+            });
     }
 
-    function AddToCart(cartitems) {
-        // alert("Added To Card");
-        setcardItems(prev => [...prev, cartitems])
+    function AddToCart(cartItem) {
+        const existingItem = cardItems.find(item => item.id === cartItem.id);
+
+        if (existingItem) {
+            setcardItems(prevItems =>
+                prevItems.map(item =>
+                    item.id === cartItem.id
+                        ? { ...item, quantity: item.quantity + 1 }
+                        : item
+                )
+            );
+        } else {
+            setcardItems(prevItems => [...prevItems, { ...cartItem, quantity: 1 }]);
         }
+    }
 
     function FilterLink(e) {
         let link = e.target.id;
         axios.get(`https://fakestoreapi.com/products/category/${link}`)
             .then(response => {
-                setProducts(response.data)
-            })
+                setProducts(response.data);
+            });
     }
 
     function LoadALL() {
-        LoadProducts()
+        LoadProducts();
     }
-
 
     function typeProduct(e) {
         let InputValue = e.target.value;
         const filteredProducts = products.filter(obj => obj.title.toLowerCase().includes(InputValue));
-        setProducts(filteredProducts)
+        setProducts(filteredProducts);
     }
+
     function searchProduct() {
-        typeProduct()
+        typeProduct();
     }
+
     function BackToAll() {
-        LoadProducts()
+        LoadProducts();
     }
 
     function RatingChange1(e) {
@@ -73,9 +81,10 @@ export default function ShopperApp() {
             setProducts(filterRating);
         }
         else {
-            LoadProducts()
+            LoadProducts();
         }
     }
+
     function RatingChange2(e) {
         let rating = e.target.value;
         if (e.target.checked) {
@@ -83,28 +92,31 @@ export default function ShopperApp() {
             setProducts(filterRating);
         }
         else {
-            LoadProducts()
+            LoadProducts();
         }
+    }
 
-    }
     function DeleteItem(id) {
-        // alert("deleted")
-        const NewItem = cardItems.filter(dlt => dlt.id !== id);
-        setcardItems([...NewItem]);
+        const existingItem = cardItems.find(item => item.id === id);
+
+        if (existingItem && existingItem.quantity > 1) {
+            setcardItems(prevItems =>
+                prevItems.map(item =>
+                    item.id === id
+                        ? { ...item, quantity: item.quantity - 1 }
+                        : item
+                )
+            );
+        } else {
+            const NewItems = cardItems.filter(item => item.id !== id);
+            setcardItems([...NewItems]);
+        }
     }
-function IncreMent(e){
-    let increment = e.target.value;
-    increment++;
-    setCount(increment);
-    console.log(count)
-}
 
     useEffect(() => {
-
         LoadCategory();
-        LoadProducts()
-
-    }, [])
+        LoadProducts();
+    }, []);
 
     return (
         <div>
@@ -124,7 +136,6 @@ function IncreMent(e){
                                     <a className="nav-link text-dark" id={items} onClick={FilterLink}>{items.toUpperCase()}</a>
                                 </li>
                             )
-
                         }
                         <li className="nav-item mx-2">
                             <div className="input-group">
@@ -139,14 +150,12 @@ function IncreMent(e){
                             <p>
                                 <span className="bi bi-star-fill"> 4 or Above</span>
                             </p>
-
                         </li>
                         <li className="nav-item d-lg-flex ms-2">
                             <input type="checkbox" value={3.9} onChange={RatingChange2} className="form-check-input"></input>
                             <p >
                                 <span className="bi bi-star-fill"> 3.9 or Below</span>
                             </p>
-
                         </li>
                         <li className="nav-item ms-3">
                             <button className="btn btn-dark" data-bs-target="#modalBox" data-bs-toggle="modal">
@@ -155,12 +164,10 @@ function IncreMent(e){
                         </li>
                     </ol>
                 </div>
-
             </nav>
             <main className="d-flex flex-wrap">
                 {
                     products.map((product, index) =>
-
                         <div className="card" style={{ width: "300px", height: "550px", margin: "10px" }} key={index}>
                             <div style={{ textAlign: "center" }} >
                                 <img src={product.image} style={{ width: "200px", margin: "10px", height: "200px" }} className="card-img-top" alt="..."></img>
@@ -183,7 +190,6 @@ function IncreMent(e){
                     )
                 }
             </main>
-
             <div className="modal fade modal-fullscreen" id="modalBox" >
                 <div className="modal-dialog modal-dialog-centered">
                     <div className="modal-content">
@@ -196,42 +202,36 @@ function IncreMent(e){
                                 <thead>
                                     <tr>
                                         <th>Index</th>
-                                        <th>Items</th>
+                                        <th>Quantity</th>
                                         <th>Name</th>
                                         <th>Price</th>
                                         <th>Preview</th>
                                         <th>Edit</th>
                                     </tr>
-
                                 </thead>
                                 <tbody>
                                     {
                                         cardItems.map((list, index) =>
                                             <tr key={index}>
                                                 <td>{list.id}</td>
-                                                <td><button  className="btn btn-info d-block" value={count} onClick={IncreMent}>{count}</button></td>
+                                                <td>{list.quantity}</td> {/* Show quantity */}
                                                 <td>{list.title}</td>
                                                 <td className="fw-bold">{list.price.toLocaleString("en-in", { style: "currency", currency: "INR" })}</td>
                                                 <td style={{ mixBlendMode: "multiply" }}>
-                                                    <img src={list.image} style={{ marginTop: "-0px", width: "30px", height: "30" }} />
+                                                    <img src={list.image} style={{ marginTop: "-0px", width: "30px", height: "30px" }} />
                                                 </td>
                                                 <td>
                                                     <button className="btn btn-danger bi bi-trash-fill" onClick={() => DeleteItem(list.id)}> </button>
                                                 </td>
-
                                             </tr>
                                         )
                                     }
                                 </tbody>
                             </table>
-
                         </div>
-
                     </div>
                 </div>
-
             </div>
-
         </div>
-    )
+    );
 }
