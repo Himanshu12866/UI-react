@@ -91,7 +91,8 @@ export default function Captcha() {
                         </select>
                         <p className="text-danger">{formik.errors.city}</p>
                         <div className="d-flex justify-content-between my-2">
-                            <label className="form-label">Please Enter The Captcha :</label> <button onClick={ChangeCode} className="btn btn-secondary bi bi-arrow-counterclockwise"></button>
+                            <label className="form-label">Please Enter The Captcha :</label>
+                             <p onClick={ChangeCode} className="btn btn-secondary bi bi-arrow-counterclockwise"></p>
                         </div>
                         <input type="text" className="form-control" name="codeCaptcha" onChange={formik.handleChange} ></input>
                         <p className="text-danger">{formik.errors.codeCaptcha}</p>
