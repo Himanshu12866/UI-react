@@ -2,7 +2,7 @@
 import "./component/login.component.css";
 import "./component/input.component.css";
 import "./App.css"
-import MountDemo from "./component/mount";
+import MountDemo from "./component/mount/mount";
 // import Captcha from "./component/captcha";
 
 // import Node from "./component/context-demo/node";
