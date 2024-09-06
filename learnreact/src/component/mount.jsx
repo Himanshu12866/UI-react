@@ -7,5 +7,5 @@ export default function MountDemo(){
         return () => {
             console.log("Component Unmounted");
         }
-    })
+    },[])
 }

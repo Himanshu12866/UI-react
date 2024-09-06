@@ -49,8 +49,8 @@ function App() {
       {/* <ShopperApp /> */}
 
       {/* <Captcha/> */}
-{/* <Node /> */}
-<MountDemo/>
+      {/* <Node /> */}
+      <MountDemo />
     </div>
   )
 }
