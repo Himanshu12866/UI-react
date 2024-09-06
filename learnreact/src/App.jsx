@@ -3,7 +3,8 @@ import "./component/login.component.css";
 import "./component/input.component.css";
 import "./App.css"
 // import MountDemo from "./component/mount/mount";
-import Captcha from "./component/captcha";
+// import Captcha from "./component/captcha";
+import NavComponent from "./component/custom/useNav";
 
 // import Node from "./component/context-demo/node";
 // import ShopperApp from "./component/shopper";
@@ -48,9 +49,10 @@ function App() {
       {/* <GrandP /> */}
       {/* <ShopperApp /> */}
 
-      <Captcha/>
+      {/* <Captcha/> */}
       {/* <Node /> */}
       {/* <MountDemo /> */}
+      <NavComponent/>
     </div>
   )
 }

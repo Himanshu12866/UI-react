@@ -66,10 +66,10 @@ export default function Captcha() {
                 </div>
                 <div className="card-body">
                     <form onSubmit={formik.handleSubmit}>
-                        <label className="form-label"> Userename :</label>
+                        <label className="form-label fw-bold"> Username :</label>
                         <input type="text" onChange={formik.handleChange} className="form-control my-1" name="name" />
                         <p className="text-danger">{formik.errors.name}</p>
-                        <label className="form-label">Password:</label>
+                        <label className="form-label fw-bold">Password:</label>
                         <div className="input-group">
                             <input className="form-control my-1" type={type} onChange={formik.handleChange} name="psw"></input>
                             <span className={`btn btn-secondary input-group-text my-1  ${eye}`} onClick={ChangeType}></span>
@@ -79,10 +79,10 @@ export default function Captcha() {
                             <p style={{ backgroundColor: "red", textAlign: "center", padding: "14px", color: "white", cursor: "pointer" }} className="bi bi-pencil-square w-25" onCopy={Restrict} onClick={Generate}> &nbsp; Generate Password</p>
                         </div>
                         <p className="text-danger">{formik.errors.psw}</p>
-                        <label className="form-label">Mobile No. :</label>
+                        <label className="form-label fw-bold">Mobile No. :</label>
                         <input className="form-control my-1" type="text" name="Mobile" onChange={formik.handleChange}></input>
                         <p className="text-danger">{formik.errors.Mobile}</p>
-                        <label className="form-label">City :</label>
+                        <label className="form-label fw-bold">City :</label>
                         <select className="form-select my-1" name="city" onChange={formik.handleChange}>
                             <option value="">Select City</option>
                             <option value="delhi">Delhi</option>
@@ -91,7 +91,7 @@ export default function Captcha() {
                         </select>
                         <p className="text-danger">{formik.errors.city}</p>
                         <div className="d-flex justify-content-between my-2">
-                            <label className="form-label">Please Enter The Captcha :</label>
+                            <label className="form-label fw-bold">Please Enter The Captcha :</label>
                              <p onClick={ChangeCode} className="btn btn-secondary bi bi-arrow-counterclockwise"></p>
                         </div>
                         <input type="text" className="form-control" name="codeCaptcha" onChange={formik.handleChange} ></input>
