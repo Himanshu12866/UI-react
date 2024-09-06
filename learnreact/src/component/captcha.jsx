@@ -7,26 +7,29 @@ export default function Captcha() {
     const [otp, seOtp] = useState(" OTP");
     const [type, setType] = useState("password")
     const [show, setShow] = useState(false);
-    const [eye, slashEye] = useState("bi bi-eye-slash")
+    const [eye, slashEye] = useState("bi bi-eye-slash");
+    // const [err , errorCaptch] = useState("")
 
     const formik = useFormik({
         initialValues: {
             name: "",
             psw: "",
             Mobile: "",
-            city: ""
+            city: "",
+            codeCaptcha:""
         },
         validationSchema: yup.object({
             name: yup.string().required("Enter Username"),
 
             Mobile: yup.string().required("Please Enter Valid Number").matches(/\w{10}/, "Please Enter Valid number"),
-            city: yup.string().required("Please Select City")
+            city: yup.string().required("Please Select City"),
+            codeCaptcha:yup.string().required("Please Enter the captcha code").max(6).matches(otp , "Please enter the correct code")
         })
     })
     function ChangeCode() {
 
         let code = useCapcha()
-        seOtp(code)
+        seOtp(code);
     }
 
     function ChangeType() {
@@ -44,7 +47,14 @@ export default function Captcha() {
 
         }
     }
-
+// function MatchCaptcha(e){
+//     if(e.target.value !== otp){
+// errorCaptch("Please Enter A Correct Code")
+//     }
+//     else{
+//         errorCaptch("")
+//     }
+// }
 
     return (
         <div className="d-flex justify-content-center">
@@ -77,14 +87,16 @@ export default function Captcha() {
                             <option value="hyd">Hyderabad</option>
                         </select>
                         <p className="text-danger">{formik.errors.city}</p>
-                        <div>
-                            <button className="btn btn-success w-100 my-1">Submit</button>
+                       
+                        <div className="d-flex justify-content-between my-2">
+                            <label className="form-label">Please Enter The Captcha :</label> <button onClick={ChangeCode} className="btn btn-secondary bi bi-arrow-counterclockwise"></button>
                         </div>
-                    <div className="d-flex justify-content-between my-2">
-                        <label className="form-label">Please Enter The Captcha :</label> <button onClick={ChangeCode} className="btn btn-secondary bi bi-arrow-counterclockwise"></button>
-                    </div>
-                    <input type="text" className="form-control" ></input>
-                    <button className="btn btn-dark text-light w-100 my-3" style={{letterSpacing:"1px"}}>{otp}</button>
+                        <input type="text" className="form-control"  name="codeCaptcha" required onChange={formik.handleChange} ></input>
+                        <p className="text-danger">{formik.errors.codeCaptcha}</p>
+                        <button className="btn btn-dark text-light w-100 my-3" style={{ letterSpacing: "1px" }}>{otp}</button>
+                        <div>
+                            <button className="btn btn-success w-100 my-1" type="submit">Submit</button>
+                        </div>
                     </form>
                 </div>
             </div>
