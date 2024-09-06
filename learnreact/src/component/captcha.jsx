@@ -83,7 +83,7 @@ export default function Captcha() {
                     <div className="d-flex justify-content-between my-2">
                         <label className="form-label">Please Enter The Captcha :</label> <button onClick={ChangeCode} className="btn btn-secondary bi bi-arrow-counterclockwise"></button>
                     </div>
-                    <input type="number" className="form-control" ></input>
+                    <input type="text" className="form-control" ></input>
                     <button className="btn btn-dark text-light w-100 my-3" style={{letterSpacing:"1px"}}>{otp}</button>
                     </form>
                 </div>
