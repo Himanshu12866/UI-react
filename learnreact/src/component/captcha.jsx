@@ -58,7 +58,10 @@ export default function Captcha() {
                         <div className="input-group">
                             <input className="form-control my-1" type={type} onChange={formik.handleChange} name="psw"></input>
                             <span className={`btn btn-secondary input-group-text my-1  ${eye}`} onClick={ChangeType}></span>
-                    
+                        </div>
+                        <div className="d-flex justify-content-between my-2 mx-2">
+                            <button className="btn btn-dark w-50">psw</button>
+                            <button className="btn btn-success bi bi-pencil-square w-25 p-1"> Generate</button>
                         </div>
                         <p className="text-danger">{formik.errors.psw }</p>
                         <label className="form-label">Mobile No. :</label>
