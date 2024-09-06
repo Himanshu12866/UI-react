@@ -16,8 +16,14 @@ export default function Table(props) {
                     </tr>
                     <tbody>
                         {
-                            Object.keys(items).map((item, index) =>
+                            props.data.map((item , index) => 
+                            <tr key={index}>
+                                {
+                                    Object.keys(item).map((item, index) =>
                                 <td key={index}>{item}</td>
+                            )
+                                }
+                            </tr>
                             )
                         }
                     </tbody>
