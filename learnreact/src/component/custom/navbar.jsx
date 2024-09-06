@@ -8,11 +8,10 @@ export default function NavBar(props) {
             <div className="navbar-collapse collapse" id="list">
                 <ol className="navbar-nav">
                     {
-                        props.links.map((link, index) => 
+                        props.links.map((link, index) =>
                             <li className="nav-item" key={index}>
                                 <a className="nav-link" href="#">{link}</a>
                             </li>)
-                        
                     }
                 </ol>
             </div>
