@@ -2,7 +2,8 @@
 import "./component/login.component.css";
 import "./component/input.component.css";
 import "./App.css"
-import Captcha from "./component/captcha";
+import MountDemo from "./component/mount";
+// import Captcha from "./component/captcha";
 
 // import Node from "./component/context-demo/node";
 // import ShopperApp from "./component/shopper";
@@ -47,8 +48,9 @@ function App() {
       {/* <GrandP /> */}
       {/* <ShopperApp /> */}
 
-      <Captcha/>
+      {/* <Captcha/> */}
 {/* <Node /> */}
+<MountDemo/>
     </div>
   )
 }
