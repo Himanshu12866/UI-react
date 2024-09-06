@@ -26,9 +26,12 @@ export default function Captcha() {
             psw: yup.string().required("Please Enter Password").matches(/^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*])[A-Za-z\d!@#$%^&*]{8,16}$/, "Atlease one Uppercase , atleast one lowercase , atleaset one muber , atleast one special character"),
             codeCaptcha: yup.string().required("Please Enter the captcha code").max(6).matches(otp, "Please enter the correct code")
         }),
-        onSubmit: (values) => {
-            console.log(values)
-        }
+        onSubmit:
+            (values) => {
+                console.log(values);
+
+            }
+
     })
     function ChangeCode() {
         let code = useCapcha()
@@ -50,10 +53,10 @@ export default function Captcha() {
         setPsword(psw);
 
     }
-    function Restrict(){
-    document.oncontextmenu = () => {
-        return false;
-    }
+    function Restrict() {
+        document.oncontextmenu = () => {
+            return false;
+        }
     }
     return (
         <div className="d-flex justify-content-center">
@@ -73,7 +76,7 @@ export default function Captcha() {
                         </div>
                         <div className="d-flex justify-content-between my-2  mx-2">
                             <p style={{ backgroundColor: "green", color: "black", padding: "14px" }} className="w-25 text-center text-light">{psword}</p>
-                            <p style={{backgroundColor:"red", textAlign:"center" , padding:"14px" , color:"white" , cursor:"pointer"}} className="bi bi-pencil-square w-25" onCopy={Restrict} onClick={Generate}> &nbsp; Generate Password</p>
+                            <p style={{ backgroundColor: "red", textAlign: "center", padding: "14px", color: "white", cursor: "pointer" }} className="bi bi-pencil-square w-25" onCopy={Restrict} onClick={Generate}> &nbsp; Generate Password</p>
                         </div>
                         <p className="text-danger">{formik.errors.psw}</p>
                         <label className="form-label">Mobile No. :</label>
