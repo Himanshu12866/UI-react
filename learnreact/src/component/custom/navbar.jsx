@@ -12,6 +12,7 @@ export default function NavBar(props) {
                             <li className="nav-item" key={index}>
                                 <a className="nav-link" href="#">{link}</a>
                             </li>)
+
                     }
                 </ol>
             </div>
