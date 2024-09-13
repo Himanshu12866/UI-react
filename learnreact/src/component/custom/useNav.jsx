@@ -1,3 +1,4 @@
+import Uncontrolled from "../conditional-components/uncontrolled";
 import CustomList from "./list";
 import NavBar from "./navbar";
 import Table from "./table";
@@ -17,5 +18,6 @@ export default function NavComponent() {
             <Table headItems={["Name", "Position", "Sallery" , "Role"]} data={employeeData} />
             <CustomList  theme="bg-warning" items={["Apple" , "Samsung" , "Realme" , " boAt" ]}/>
             <CustomList  theme="bg-dark text-light" listTheme="" items={["Tata Group" , "Microsoft" , "Amazon" , "Meta" , "Tesla" , "Infosys" , "Capgemini" ]} linkColor="white"/>
+            <Uncontrolled/>
         </div>)
 }
