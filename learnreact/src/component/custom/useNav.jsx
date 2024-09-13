@@ -1,3 +1,4 @@
+import ConditionalRendering from "../conditional-components/controlled";
 import Uncontrolled from "../conditional-components/uncontrolled";
 import CustomList from "./list";
 import NavBar from "./navbar";
@@ -19,5 +20,6 @@ export default function NavComponent() {
             <CustomList  theme="bg-warning" items={["Apple" , "Samsung" , "Realme" , " boAt" ]}/>
             <CustomList  theme="bg-dark text-light" listTheme="" items={["Tata Group" , "Microsoft" , "Amazon" , "Meta" , "Tesla" , "Infosys" , "Capgemini" ]} linkColor="white"/>
             <Uncontrolled/>
+            <ConditionalRendering/>
         </div>)
 }

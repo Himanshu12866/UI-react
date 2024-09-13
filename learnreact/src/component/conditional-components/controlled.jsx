@@ -16,7 +16,7 @@ export default function ConditionalRendering() {
         setLayout(e.target.value);
     }
     return (
-        <div className="box">
+        <div className="boxbox">
             <div>
                 {
                     (sigIn === true) ? <h1>You Are Signed In</h1> : <h1>You are Signed Out</h1>
@@ -27,7 +27,7 @@ export default function ConditionalRendering() {
                     (sigIn === true) ? <button className="btn btn-dark" onClick={handleSignIn}>Sign Out</button> : <button className="btn btn-success" onClick={handleSignOut}>Sign In </button>
                 }
             </div>
-            <select className="form-select" onChange={handleSelect}>
+            <select className="form-select w-25 m-3" onChange={handleSelect}>
                 <option value="">Select layout</option>
                 <option value="grid">Grid</option>
                 <option value="card">card</option>

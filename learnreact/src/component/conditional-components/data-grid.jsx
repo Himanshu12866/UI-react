@@ -32,7 +32,7 @@ export default function DataGrid(props) {
             <div className="d-flex flex-wrap">
                 {
                     props.data.map(item =>
-                        <div style={{ width: "200px", height: "250px" }} className="card" key={item}>
+                        <div style={{ width: "200px", height: "250px" }} className="card m-2" key={item}>
 
                             <div className="card-header">
                                 {
