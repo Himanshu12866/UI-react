@@ -4,7 +4,7 @@ import DataGrid from "./data-grid";
 
 export default function ConditionalRendering() {
     const [sigIn, setSignedIn] = useState(false);
-    const [layout, setLayout] = useState("");
+    const [layout, setLayout] = useState("d");
 
     function handleSignIn() {
         setSignedIn(true);
@@ -28,7 +28,7 @@ export default function ConditionalRendering() {
                 }
             </div>
             <select className="form-select w-25 m-3" onChange={handleSelect}>
-                <option value="">Select layout</option>
+                <option value="d">Select layout</option>
                 <option value="grid">Grid</option>
                 <option value="card">card</option>
             </select>
