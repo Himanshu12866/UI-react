@@ -13,12 +13,12 @@ export default function Uncontrolled() {
     return (
         <div className="navlist">
             <nav className="navbar">
-                <a className="navbar-brand">Shopper.</a>
+                <a className="navbar-brand fs-4 text-dark fw-bold">Shopper.</a>
 
                 {
                     (sigIn === true) ?
 
-                        <ol className="navbar-nav">
+                        <ul className="navbar-nav">
                             <li className="nav-item">
                                 <a className="nav-link">Home</a>
                             </li>
@@ -31,19 +31,20 @@ export default function Uncontrolled() {
                             <li className="nav-item">
                                 <a className="nav-link">Contact</a>
                             </li>
-                        </ol>
-                        :
+                        </ul>
+                        : 
                         <div></div>
                 }
 
-                <ol>
+                <div>
                     {
                         (sigIn === true) ? <button className="btn btn-dark" onClick={handleSignOut}>Sign Out</button> : <button className="btn btn-success" onClick={handleSignIn}>Sign In</button>
                     }
-                </ol>
+                </div>
 
 
             </nav>
+            
         </div>
     )
 }
