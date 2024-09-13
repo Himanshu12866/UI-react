@@ -6,8 +6,8 @@ export default function Table(props) {
     return (
         <div className="p-3">
             <table className="table table-hover table-striped">
-                <thead className="thead-dark">
-                    <tr>
+                <thead className="bg-dark">
+                    <tr className="bg-dark">
                         {
                             props.headItems.map((item, index) =>
                                 <th key={index}>{item}</th>
