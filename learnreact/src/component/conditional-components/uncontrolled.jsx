@@ -13,23 +13,23 @@ export default function Uncontrolled() {
     return (
         <div className="navlist">
             <nav className="navbar">
-                <a className="navbar-brand fs-4 text-dark fw-bold">Shopper.</a>
+                <a className="navbar-brand fs-3 text-dark fw-bold">Shopper.</a>
 
                 {
                     (sigIn === true) ?
 
-                        <ul className="navbar-nav">
+                        <ul className="navbar-nav d-flex flex-row gap-5">
                             <li className="nav-item">
-                                <a className="nav-link">Home</a>
+                                <a className="nav-link fs-5">Home</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link">About</a>
+                                <a className="nav-link fs-5">About</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link">Help</a>
+                                <a className="nav-link fs-5">Help</a>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link">Contact</a>
+                                <a className="nav-link fs-5">Contact</a>
                             </li>
                         </ul>
                         : 
