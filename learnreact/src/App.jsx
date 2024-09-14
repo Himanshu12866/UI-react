@@ -6,6 +6,7 @@ import "./App.css"
 // import Captcha from "./component/captcha";
 import NavComponent from "./component/custom/useNav";
 import ReducerDemo from "./component/reducerDemo";
+import ExaClass from "./component/Classes/exaclass";
 
 // import Node from "./component/context-demo/node";
 // import ShopperApp from "./component/shopper";
@@ -55,6 +56,7 @@ function App() {
       {/* <MountDemo /> */}
       <NavComponent/>
       <ReducerDemo/>
+      <ExaClass/>
     </div>
   )
 }
