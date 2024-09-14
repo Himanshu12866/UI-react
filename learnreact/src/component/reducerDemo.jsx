@@ -1,23 +1,23 @@
 import { useReducer } from "react";
 
-let initialState = {wishList : 0}
-function reducer(state , action){
-    switch(action.type){
+let initialState = { wishList: 0 }
+function reducer(state, action) {
+    switch (action.type) {
         case 'addToCart':
-            return {wishList : state.wishList + 1};
-            case 'removeFromCart':
-                return {wishList : state.wishList - 1};
+            return { wishList: state.wishList + 1 };
+        case 'removeFromCart':
+            return { wishList: state.wishList - 1 };
     }
 }
 
 export default function ReducerDemo() {
 
-    const [state , dispatch] = useReducer(reducer , initialState);
-    function handleWishList(){
-        dispatch({type : 'addToCart'});
+    const [state, dispatch] = useReducer(reducer, initialState);
+    function handleWishList() {
+        dispatch({ type: 'addToCart' });
     }
-    function handleRemove(){
-        dispatch({type : 'removeFromCart'});
+    function handleRemove() {
+        dispatch({ type: 'removeFromCart' });
     }
     return (
         <div className="flexBx w-100 d-flex justify-content-center">
@@ -28,7 +28,7 @@ export default function ReducerDemo() {
                 </div>
                 <div className="card-footer">
                     <button onClick={handleWishList} className="btn btn-dark bi bi-plus fs-4"></button>
-                    <button className=" btn btn-danger bi bi-cart mx-2 fs-4 position-relative"><span className="badge rounded rounded-pill  position-absolute bg-dark" style={{top:"5px",left:"25px",fontSize:"10px"}}>{state.wishList}</span></button>
+                    <button className=" btn btn-danger bi bi-cart mx-2 fs-4 position-relative"><span className="badge rounded rounded-pill  position-absolute bg-dark" style={{ top: "5px", left: "25px", fontSize: "10px" }}>{state.wishList}</span></button>
                     <button onClick={handleRemove} className="btn btn-warning bi bi-dash fs-4"></button>
                 </div>
             </div>
