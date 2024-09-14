@@ -7,6 +7,7 @@ import "./App.css"
 import NavComponent from "./component/custom/useNav";
 import ReducerDemo from "./component/reducerDemo";
 import ExaClass from "./component/Classes/exaclass";
+import Reducerdemo1 from "./component/Classes/reducerdemo";
 
 // import Node from "./component/context-demo/node";
 // import ShopperApp from "./component/shopper";
@@ -57,6 +58,7 @@ function App() {
       <NavComponent/>
       <ReducerDemo/>
       <ExaClass/>
+      <Reducerdemo1/>
     </div>
   )
 }
