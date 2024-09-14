@@ -4,7 +4,8 @@ import "./component/input.component.css";
 import "./App.css"
 // import MountDemo from "./component/mount/mount";
 // import Captcha from "./component/captcha";
-import NavComponent from "./component/custom/useNav";
+// import NavComponent from "./component/custom/useNav";
+import MyApp from "./component/context/newContext";
 
 // import Node from "./component/context-demo/node";
 // import ShopperApp from "./component/shopper";
@@ -52,7 +53,8 @@ function App() {
       {/* <Captcha/> */}
       {/* <Node /> */}
       {/* <MountDemo /> */}
-      <NavComponent/>
+      {/* <NavComponent/> */}
+      <MyApp/>
     </div>
   )
 }
