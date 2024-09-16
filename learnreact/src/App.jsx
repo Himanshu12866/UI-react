@@ -2,12 +2,13 @@
 import "./component/login.component.css";
 import "./component/input.component.css";
 import "./App.css"
+import DraggableBox from "./component/draggable";
 // import MountDemo from "./component/mount/mount";
 // import Captcha from "./component/captcha";
-import NavComponent from "./component/custom/useNav";
-import ReducerDemo from "./component/reducerDemo";
-import ExaClass from "./component/Classes/exaclass";
-import Reducerdemo1 from "./component/Classes/reducerdemo";
+// import NavComponent from "./component/custom/useNav";
+// import ReducerDemo from "./component/reducerDemo";
+// import ExaClass from "./component/Classes/exaclass";
+// import Reducerdemo1 from "./component/Classes/reducerdemo";
 
 // import Node from "./component/context-demo/node";
 // import ShopperApp from "./component/shopper";
@@ -55,10 +56,12 @@ function App() {
       {/* <Captcha/> */}
       {/* <Node /> */}
       {/* <MountDemo /> */}
-      <NavComponent/>
+      {/* <NavComponent/>
       <ReducerDemo/>
       <ExaClass/>
-      <Reducerdemo1/>
+      <Reducerdemo1/> */}
+      <DraggableBox/>
+
     </div>
   )
 }
