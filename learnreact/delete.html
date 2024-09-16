@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trending Products</title>
+   <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+}
+
+.products-section {
+    text-align: center;
+}
+
+.products-section h1 {
+    font-size: 2rem;
+    color: #000;
+    margin-bottom: 10px;
+}
+
+.products-section p {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.products-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.product-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+    padding: 20px;
+    text-align: center;
+}
+
+.product-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.product-card h3 {
+    font-size: 1rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+.product-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.product-price {
+    font-size: 1rem;
+    color: #28a745;
+    margin-bottom: 10px;
+}
+
+.product-price .new-price {
+    color: #28a745;
+    font-weight: bold;
+}
+
+.product-price .old-price {
+    color: #999;
+    text-decoration: line-through;
+}
+
+.options-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.options-btn:hover {
+    background-color: #218838;
+}
+
+   </style>
+</head>
+<body>
+    <section class="products-section">
+        <h1>Tranding Products</h1>
+        <p>A vertual assistance collect the products from your list</p>
+        <div class="products-container">
+            <!-- Product Card 1 -->
+            <div class="product-card">
+                <img src="almonds.jpg" alt="Almonds">
+                <h3>KiranWorld</h3>
+                <p class="product-name">Almonds(badam)</p>
+                <p class="product-price">
+                    <span class="new-price">₹197</span> 
+                    <span class="old-price">₹300</span>
+                </p>
+                <p>250gm</p>
+                <button class="options-btn">Options</button>
+            </div>
+            <!-- Product Card 2 -->
+            <div class="product-card">
+                <img src="cashew.jpg" alt="Cashew">
+                <h3>KiranWorld</h3>
+                <p class="product-name">Almonds(badam)</p>
+                <p class="product-price">
+                    <span class="new-price">₹197</span> 
+                    <span class="old-price">₹300</span>
+                </p>
+                <p>250gm</p>
+                <button class="options-btn">Options</button>
+            </div>
+            <!-- Product Card 3 -->
+            <div class="product-card">
+                <img src="raisins.jpg" alt="Raisins">
+                <h3>KiranWorld</h3>
+                <p class="product-name">Almonds(badam)</p>
+                <p class="product-price">
+                    <span class="new-price">₹197</span> 
+                    <span class="old-price">₹300</span>
+                </p>
+                <p>250gm</p>
+                <button class="options-btn">Options</button>
+            </div>
+            <!-- Product Card 4 -->
+            <div class="product-card">
+                <img src="raisins2.jpg" alt="Raisins">
+                <h3>KiranWorld</h3>
+                <p class="product-name">Almonds(badam)</p>
+                <p class="product-price">
+                    <span class="new-price">₹197</span> 
+                    <span class="old-price">₹300</span>
+                </p>
+                <p>250gm</p>
+                <button class="options-btn">Options</button>
+            </div>
+            <!-- Product Card 5 -->
+            <div class="product-card">
+                <img src="walnuts.jpg" alt="Walnuts">
+                <h3>KiranWorld</h3>
+                <p class="product-name">Almonds(badam)</p>
+                <p class="product-price">
+                    <span class="new-price">₹197</span> 
+                    <span class="old-price">₹300</span>
+                </p>
+                <p>250gm</p>
+                <button class="options-btn">Options</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
