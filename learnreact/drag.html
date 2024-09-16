@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+      }
+      .container {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        cursor: move;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container"></div>
+    <script>
+        const box = document.querySelector(".container");
+        function onMouseDrag({movementX, movementY}) {
+          let getContainerStyle = window.getComputedStyle(box);
+          let x = parseInt(getContainerStyle.left);
+          let y = parseInt(getContainerStyle.top);
+          box.style.left = `${x + movementX}px`;
+          box.style.top = `${y + movementY}px`;
+        }
+        box.addEventListener("mounsedown", () => {
+          box.addEventListener("mousemove", onMouseDrag);
+        });
+        document.addEventListener("mouseup" , () =>{
+          box.removeEventListener("mousemove", onMouseDrag);
+        })
+    //   const container = document.querySelector(".container");
+    //   function onMouseDrag({ movementX, movementY }) {
+    //     let getContainerStyle = window.getComputedStyle(container);
+    //     let leftValue = parseInt(getContainerStyle.left);
+    //     let topValue = parseInt(getContainerStyle.top);
+    //     container.style.left = `${leftValue + movementX}px`;
+    //     container.style.top = `${topValue + movementY}px`;
+    //   }
+    //   container.addEventListener("mousedown", () => {
+    //     container.addEventListener("mousemove", onMouseDrag);
+    //   });
+    //   document.addEventListener("mouseup", () => {
+    //     container.removeEventListener("mousemove", onMouseDrag);
+    //   });
+    </script>
+  </body>
+</html>
