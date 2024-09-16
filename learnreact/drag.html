@@ -24,7 +24,7 @@
   <body>
     <div class="container"></div>
     <script>
-        const box = document.querySelector(".container");
+        let box = document.querySelector(".container");
         function onMouseDrag({movementX, movementY}) {
           let getContainerStyle = window.getComputedStyle(box);
           let x = parseInt(getContainerStyle.left);
@@ -35,7 +35,7 @@
         box.addEventListener("mounsedown", () => {
           box.addEventListener("mousemove", onMouseDrag);
         });
-        document.addEventListener("mouseup" , () =>{
+        document.addEventListener("mouseup" , () => {
           box.removeEventListener("mousemove", onMouseDrag);
         })
     //   const container = document.querySelector(".container");
