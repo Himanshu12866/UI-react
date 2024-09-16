@@ -39,7 +39,7 @@ import DraggableBox from "./component/draggable";
 
 function App() {
   return (
-    <div className='container'>
+    <div>
 
       {/* <FakeStoreApi/> */}
       {/* <FormReact /> */}

@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 function DraggableBox() {
-    // const boxRef = useRef(null);
+
     const [position, setPosition] = useState({ x: 0, y: 0 });
     const [isDragging, setIsDragging] = useState(false);
 
@@ -33,23 +33,53 @@ function DraggableBox() {
     };
 
     return (
-        <div
-        
-            className="container"
-            onMouseDown={handleMouseDown}
-            style={{
-                position: 'absolute',
-                left: `${position.x}px`,
-                top: `${position.y}px`,
-                width: '100px',  // Adjust as needed
-                height: '100px', // Adjust as needed
-                backgroundColor: 'lightblue',
-                cursor: 'grab',
-            }}
-        >
-            Drag Me
-        </div>
-    );
+        <div>
+            <div
+                onMouseDown={handleMouseDown}
+                style={{
+
+                    position: 'absolute',
+                    left: `${position.x}px`,
+                    top: `${position.y}px`,
+                    width: '100px',  // Adjust as needed
+                    height: '100px', // Adjust as needed
+                    backgroundColor: 'lightblue',
+                    cursor: 'grab',
+                }}
+            >
+                Drag Me
+            </div>
+            <div
+                onMouseDown={handleMouseDown}
+                style={{
+
+                    position: 'absolute',
+                    left: `${position.x}px`,
+                    top: `${position.y}px`,
+                    width: '100px',  // Adjust as needed
+                    height: '100px', // Adjust as needed
+                    backgroundColor: 'lightblue',
+                    cursor: 'grab',
+                }}
+            >
+                Drag Me
+            </div>
+            <div
+                onMouseDown={handleMouseDown}
+                style={{
+
+                    position: 'absolute',
+                    left: `${position.x}px`,
+                    top: `${position.y}px`,
+                    width: '100px',  // Adjust as needed
+                    height: '100px', // Adjust as needed
+                    backgroundColor: 'lightblue',
+                    cursor: 'grab',
+                }}
+            >
+                Drag Me
+            </div>
+        </div>)
 }
 
 export default DraggableBox;
