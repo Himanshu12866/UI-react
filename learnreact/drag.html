@@ -26,32 +26,19 @@
     <script>
         let box = document.querySelector(".container");
         function onMouseDrag({movementX, movementY}) {
-          let getContainerStyle = window.getComputedStyle(box);
-          let x = parseInt(getContainerStyle.left);
-          let y = parseInt(getContainerStyle.top);
+          let styles = window.getComputedStyle(box);
+          let x = parseInt(styles.left);
+          let y = parseInt(styles.top);
           box.style.left = `${x + movementX}px`;
           box.style.top = `${y + movementY}px`;
         }
-        box.addEventListener("mounsedown", () => {
+        box.addEventListener("mousedown", () => {
           box.addEventListener("mousemove", onMouseDrag);
         });
         document.addEventListener("mouseup" , () => {
           box.removeEventListener("mousemove", onMouseDrag);
         })
-    //   const container = document.querySelector(".container");
-    //   function onMouseDrag({ movementX, movementY }) {
-    //     let getContainerStyle = window.getComputedStyle(container);
-    //     let leftValue = parseInt(getContainerStyle.left);
-    //     let topValue = parseInt(getContainerStyle.top);
-    //     container.style.left = `${leftValue + movementX}px`;
-    //     container.style.top = `${topValue + movementY}px`;
-    //   }
-    //   container.addEventListener("mousedown", () => {
-    //     container.addEventListener("mousemove", onMouseDrag);
-    //   });
-    //   document.addEventListener("mouseup", () => {
-    //     container.removeEventListener("mousemove", onMouseDrag);
-    //   });
+
     </script>
   </body>
 </html>

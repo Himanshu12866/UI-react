@@ -61,6 +61,7 @@ function App() {
       <ExaClass/>
       <Reducerdemo1/> */}
       <DraggableBox/>
+      <DraggableBox/>
 
     </div>
   )
