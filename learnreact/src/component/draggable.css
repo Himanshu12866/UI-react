@@ -1,8 +1,15 @@
-.dragbox{
+.drag-box{
    width: 100%;
    height: 100vh;
-   background-color: red;
-   display: flex;
+   background-color: rgb(255, 255, 255);
+   /* display: flex;
    justify-content: center;
    align-items: center;
+   position: relative; */
+}
+.drag-box .dragbox{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(255, 0, 0);
+    /* position: absolute; */
 }
