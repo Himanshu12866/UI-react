@@ -2,7 +2,8 @@
 import "./component/login.component.css";
 import "./component/input.component.css";
 import "./App.css"
-import DraggableBox from "./component/draggable";
+import {BrowserRouter , Routes, Route , Link} from "react-router"
+// import DraggableBox from "./component/draggable";
 // import MountDemo from "./component/mount/mount";
 // import Captcha from "./component/captcha";
 // import NavComponent from "./component/custom/useNav";
@@ -60,8 +61,42 @@ function App() {
       <ReducerDemo/>
       <ExaClass/>
       <Reducerdemo1/> */}
-      <DraggableBox/>
-      <DraggableBox/>
+      <BrowserRouter>
+        <div>
+          <nav className="navbar navbar-expand-sm">
+          <a className="navbar-brand">ShopperApp</a>
+          <button className="navbar-toggle" data-bs-target="#list" data-bs-toggle="collapse"></button>
+          <div className="navbar-collpase collapse" id="list">
+            <ol className="navbar-nav">
+            <li className="nav-item">
+              <Link to="/" className="nav-link" >Home</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="men" className="nav-link" >Men Fashion</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="women" className="nav-link" >Wome Fashion</Link>
+            </li>
+            <li className="nav-item">
+              <Link to="kids" className="nav-link" >Kids Fashion</Link>
+            </li>
+         
+
+            </ol>
+          </div>
+
+          </nav>
+        </div>
+        <div>
+          <Routes>
+        <Route path="/" element={<h1>Welcome To Fashion World</h1>} />
+        <Route path="men" element={<h1>Mens Fashion</h1>} />
+        <Route path="women" element={<h1>WoMens Fashion</h1>} />
+        <Route path="kids" element={<h1>Kids Fashion</h1>} />
+        <Route path="*" element={<h1>Sorry Your Request not found</h1>}/>
+          </Routes>
+        </div>
+      </BrowserRouter>
 
     </div>
   )
