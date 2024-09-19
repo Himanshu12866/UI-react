@@ -2,7 +2,7 @@
 import "./component/login.component.css";
 import "./component/input.component.css";
 import "./App.css"
-import {BrowserRouter , Routes, Route , Link} from "react-router"
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 // import DraggableBox from "./component/draggable";
 // import MountDemo from "./component/mount/mount";
 // import Captcha from "./component/captcha";
@@ -62,11 +62,11 @@ function App() {
       <ExaClass/>
       <Reducerdemo1/> */}
       <BrowserRouter>
-        <div>
-          <nav className="navbar navbar-expand-sm">
+        <div className="route-exa">
+          <nav className="navbar">
           <a className="navbar-brand">ShopperApp</a>
-          <button className="navbar-toggle" data-bs-target="#list" data-bs-toggle="collapse"></button>
-          <div className="navbar-collpase collapse" id="list">
+      
+         
             <ol className="navbar-nav">
             <li className="nav-item">
               <Link to="/" className="nav-link" >Home</Link>
@@ -83,7 +83,7 @@ function App() {
          
 
             </ol>
-          </div>
+        
 
           </nav>
         </div>
