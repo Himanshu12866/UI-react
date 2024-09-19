@@ -64,36 +64,36 @@ function App() {
       <BrowserRouter>
         <div className="route-exa">
           <nav className="navbar">
-          <a className="navbar-brand">ShopperApp</a>
-      
-         
+            <a className="navbar-brand">ShopperApp</a>
+
+
             <ol className="navbar-nav">
-            <li className="nav-item">
-              <Link to="/" className="nav-link" >Home</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="men" className="nav-link" >Men Fashion</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="women" className="nav-link" >Wome Fashion</Link>
-            </li>
-            <li className="nav-item">
-              <Link to="kids" className="nav-link" >Kids Fashion</Link>
-            </li>
-         
+              <li className="nav-item">
+                <Link to="/" className="nav-link" >Home</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="men" className="nav-link" >Men Fashion</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="women" className="nav-link" >Wome Fashion</Link>
+              </li>
+              <li className="nav-item">
+                <Link to="kids" className="nav-link" >Kids Fashion</Link>
+              </li>
+
 
             </ol>
-        
+
 
           </nav>
         </div>
         <div>
           <Routes>
-        <Route path="/" element={<h1>Welcome To Fashion World</h1>} />
-        <Route path="men" element={<h1>Mens Fashion</h1>} />
-        <Route path="women" element={<h1>WoMens Fashion</h1>} />
-        <Route path="kids" element={<h1>Kids Fashion</h1>} />
-        <Route path="*" element={<h1>Sorry Your Request not found</h1>}/>
+            <Route path="/" element={<h1>Welcome To Fashion World</h1>} />
+            <Route path="men" element={<h1>Mens Fashion</h1>} />
+            <Route path="women" element={<h1>WoMens Fashion</h1>} />
+            <Route path="kids" element={<h1>Kids Fashion</h1>} />
+            <Route path="*" element={<h1>Sorry Your Request not found</h1>} />
           </Routes>
         </div>
       </BrowserRouter>
